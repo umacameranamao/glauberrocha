@@ -83,7 +83,19 @@ const Ato4Revolucao = () => {
     // Allow this Act to take over from other Act theme music
     const isOtherActPlaying = currentAudioId && !currentAudioId.includes('custom-audio') && currentAudioId !== themeAudioId;
 
-    if (isIntersecting && !autoplayBlocked) {
+    // Only play if:
+    // 1. No audio is playing
+    // 2. This Act's theme is playing
+    // 3. Another Act's theme is playing (transition)
+    // 4. BUT NOT if a specific manual audio is playing
+    const shouldPlay = isIntersecting && !autoplayBlocked && (
+      !currentAudioId ||
+      currentAudioId === themeAudioId ||
+      currentAudioId.includes('theme') ||
+      currentAudioId.includes('ato') // catch-all for other acts
+    ) && !(currentAudioId && !currentAudioId.includes('theme') && !currentAudioId.includes('ato'));
+
+    if (shouldPlay) {
       if (fadeOutInterval) clearInterval(fadeOutInterval);
       audio.volume = 1;
       attemptPlay();
@@ -157,7 +169,7 @@ const Ato4Revolucao = () => {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-20">
-            <h2 className="font-stencil text-5xl md:text-7xl text-primary mb-6 tracking-wider">
+            <h2 className="font-stencil text-2xl md:text-5xl lg:text-7xl text-primary mb-6 tracking-wider">
               O contraste de cinemas
             </h2>
           </div>
@@ -178,7 +190,7 @@ const Ato4Revolucao = () => {
               <div className="w-full max-w-4xl mx-auto my-12">
                 <MapaCinemas />
                 <p className="text-center text-muted-foreground mt-4 font-grotesque text-sm">
-                  Mapa interativo das salas de cinema ativas e inativas na capital
+                  Mapa interativo das salas de cinema ativas e inativas na capital. Fonte: <a href="https://cinemafalda.blogspot.com/2010/02/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Cinema Falda</span></a>.
                 </p>
               </div>
             </div>
@@ -274,7 +286,7 @@ const Ato4Revolucao = () => {
                 </div>
               </div>
               <p className="text-center text-muted-foreground mt-4 font-grotesque text-sm">
-                Arraste para comparar as realidades dos cinemas
+                Arraste para comparar as realidades dos cinemas. Fotos: Acervo próprio.
               </p>
             </div>
 

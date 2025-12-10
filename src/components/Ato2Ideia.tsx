@@ -85,7 +85,19 @@ const Ato2Ideia = () => {
 
     console.log('[ATO2] Audio Logic - isIntersecting:', isIntersecting, 'autoplayBlocked:', autoplayBlocked, 'currentAudioId:', currentAudioId);
 
-    if (isIntersecting && !autoplayBlocked) {
+    // Only play if:
+    // 1. No audio is playing
+    // 2. This Act's theme is playing
+    // 3. Another Act's theme is playing (transition)
+    // 4. BUT NOT if a specific manual audio is playing
+    const shouldPlay = isIntersecting && !autoplayBlocked && (
+      !currentAudioId ||
+      currentAudioId === themeAudioId ||
+      currentAudioId.includes('theme') ||
+      currentAudioId.includes('ato') // catch-all for other acts
+    ) && !(currentAudioId && !currentAudioId.includes('theme') && !currentAudioId.includes('ato'));
+
+    if (shouldPlay) {
       console.log('[ATO2] Conditions met, attempting play...');
       if (fadeOutInterval) clearInterval(fadeOutInterval);
       audio.volume = 1;
@@ -236,7 +248,7 @@ const Ato2Ideia = () => {
               ></iframe>
             </div>
             <p className="mt-4 text-sm text-center text-muted-foreground italic font-grotesque">
-              Glauber Rocha participa do filme “Le vent d'est” de Godard em 1970 e expõe ali os princípios de seu estilo cinematográfico.
+              Glauber Rocha participa do filme “Le vent d'est” de Jean Luc Godard em 1970 e expõe ali os princípios de seu estilo cinematográfico. Reprodução: YouTube / rubs troll
             </p>
           </div>
 
@@ -261,8 +273,11 @@ const Ato2Ideia = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
                 </div>
               </div>
+              <p className="max-w-2xl mx-auto mt-4 text-sm text-center text-muted-foreground italic font-grotesque">
+                Em entrevista publicada no Estadão em 9 de novembro de 1977, direto de Salvador, o cineasta defendeu uma postura que apostava em um cinema nacionalista e popular para tirar a produção brasileira da irrelevância. Fonte: Acervo Estadão.
+              </p>
 
-              <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8">
+              <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8 mt-12">
                 Ao mesmo tempo, o cineasta se frustrava com as noções que seus filmes seriam “complexos demais”. Suas obras não alcançavam o grande público, habituado a narrativas tradicionais. “Ele precisava seguir o ritual de Hollywood, buscar exibição em diferentes lugares do Brasil, sempre preocupado em alcançar o público sem abrir mão de sua linguagem. Esse era o sonho de Glauber: fazer cinema com sentido”, afirma Alves.
               </p>
             </div>

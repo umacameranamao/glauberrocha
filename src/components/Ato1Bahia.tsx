@@ -111,6 +111,7 @@ const Ato1Bahia = () => {
 
         // If another audio takes over, pause immediatelly (no fade for responsiveness)
         if (currentAudioId && currentAudioId !== themeAudioId) {
+            console.log(`[Ato1] Pausing theme because currentAudioId is ${currentAudioId}`);
             audio.pause();
             return;
         }
@@ -199,10 +200,12 @@ const Ato1Bahia = () => {
             // 1 = Playing, 3 = Buffering
             if (event.data === 1 || event.data === 3) {
                 setIsVideoPlaying(true);
+                playAudio('youtube-ato1'); // Register as active audio to stop others
             }
             // 2 = Paused, 0 = Ended
             else if (event.data === 2 || event.data === 0) {
                 setIsVideoPlaying(false);
+                pauseAudio(); // Release global audio control
             }
         }
     }, []);
@@ -239,8 +242,8 @@ const Ato1Bahia = () => {
 
                         {/* Seção Bahia */}
                         <div className="space-y-12">
-                            <div className="max-w-3xl mx-auto space-y-6">
-                                <p ref={audioTriggerRef} className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
+                            <div ref={audioTriggerRef} className="max-w-3xl mx-auto space-y-6">
+                                <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
                                     Além de cineasta, Glauber Rocha foi poeta. Pesquisadores mapearam a obra do artista em Poemas Eskolhydos e Cartas ao Mundo, que defendia a publicação dos textos como forma de preservar a base literária de seus filmes.
 
                                 </p>

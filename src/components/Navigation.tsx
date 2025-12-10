@@ -9,7 +9,7 @@ const Navigation = () => {
     { id: "hero", label: "Início" },
     { id: "ato1", label: "A cena pop" },
     { id: "ato2", label: "Visão crítica" },
-    { id: "ato3", label: "Desafios do cinema" },
+    { id: "ato3", label: "Luta pela distribuição" },
     { id: "ato4", label: "O contraste de cinemas" },
     { id: "epilogo", label: "Manifesto Interativo" },
   ];

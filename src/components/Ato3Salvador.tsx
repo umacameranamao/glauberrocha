@@ -84,7 +84,19 @@ const Ato3Salvador = () => {
     // Allow this Act to take over from other Act theme music
     const isOtherActPlaying = currentAudioId && !currentAudioId.includes('custom-audio') && currentAudioId !== themeAudioId;
 
-    if (isIntersecting && !autoplayBlocked) {
+    // Only play if:
+    // 1. No audio is playing
+    // 2. This Act's theme is playing
+    // 3. Another Act's theme is playing (transition)
+    // 4. BUT NOT if a specific manual audio is playing
+    const shouldPlay = isIntersecting && !autoplayBlocked && (
+      !currentAudioId ||
+      currentAudioId === themeAudioId ||
+      currentAudioId.includes('theme') ||
+      currentAudioId.includes('ato') // catch-all for other acts
+    ) && !(currentAudioId && !currentAudioId.includes('theme') && !currentAudioId.includes('ato'));
+
+    if (shouldPlay) {
       if (fadeOutInterval) clearInterval(fadeOutInterval);
       audio.volume = 1;
       attemptPlay();
@@ -143,7 +155,7 @@ const Ato3Salvador = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="font-stencil text-xl md:text-5xl lg:text-7xl text-accent mb-6 tracking-wider leading-tight">
-              Desafios do cinema
+              Luta pela distribuição
             </h2>
             <div className="w-32 h-1 bg-accent mx-auto mt-8" />
           </div>

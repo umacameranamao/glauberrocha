@@ -54,7 +54,7 @@ const GraficoCinema = () => {
         lancamentos: "Porcentagem de títulos brasileiros vs. internacionais lançados.",
         sessoes: "Ocupação das salas de cinema por filmes nacionais.",
         publico: "Total de espectadores que escolheram filmes nacionais.",
-        renda: "Arrecadação de bilheteria das produções brasileiras."
+        renda: "Arrecadação de bilheteria das produções brasileiras. Fonte: Ancine."
     };
 
     const CustomTooltip = ({ active, payload, label }: any) => {
