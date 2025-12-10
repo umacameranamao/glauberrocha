@@ -51,7 +51,7 @@ const GraficoCinema = () => {
     };
 
     const descriptions = {
-        lancamentos: "Porcentagem de títulos brasileiros vs. estrangeiros lançados.",
+        lancamentos: "Porcentagem de títulos brasileiros vs. internacionais lançados.",
         sessoes: "Ocupação das salas de cinema por filmes nacionais.",
         publico: "Total de espectadores que escolheram filmes nacionais.",
         renda: "Arrecadação de bilheteria das produções brasileiras."
@@ -68,7 +68,7 @@ const GraficoCinema = () => {
                             {payload[0].value}%
                         </p>
                         <p className="text-primary">
-                            <span className="text-white uppercase text-xs tracking-wider mr-2">Estrangeiro:</span>
+                            <span className="text-white uppercase text-xs tracking-wider mr-2">Internacional:</span>
                             {payload[1].value}%
                         </p>
                     </div>
@@ -89,7 +89,7 @@ const GraficoCinema = () => {
 
                     {/* Header */}
                     <div className="relative z-10 mb-10 text-center">
-                        <h3 className="font-stencil text-4xl md:text-6xl text-accent mb-4 tracking-wider uppercase">
+                        <h3 className="font-stencil text-2xl text-accent mb-4 tracking-wider uppercase">
                             O ABISMO DO MERCADO
                         </h3>
                         <p className="font-grotesque text-white/70 text-lg max-w-2xl mx-auto">
@@ -142,7 +142,7 @@ const GraficoCinema = () => {
                                         <Cell key={`cell-nac-${index}`} stroke="black" strokeWidth={1} />
                                     ))}
                                 </Bar>
-                                <Bar dataKey="est" name="Estrangeiro" stackId="a" fill="#8a1c1c" radius={[2, 2, 0, 0]} barSize={40}>
+                                <Bar dataKey="est" name="Internacional" stackId="a" fill="#8a1c1c" radius={[2, 2, 0, 0]} barSize={40}>
                                     {data[activeTab].map((entry, index) => (
                                         <Cell key={`cell-est-${index}`} stroke="black" strokeWidth={1} />
                                     ))}
@@ -160,7 +160,7 @@ const GraficoCinema = () => {
                             </div>
                             <div className="flex items-center gap-2">
                                 <div className="w-4 h-4 bg-primary border border-black" />
-                                <span className="font-grotesque text-white text-sm uppercase tracking-wider">Estrangeiro</span>
+                                <span className="font-grotesque text-white text-sm uppercase tracking-wider">Internacional</span>
                             </div>
                         </div>
 

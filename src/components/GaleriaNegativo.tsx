@@ -1,47 +1,90 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
+import idadeDaTerra from "@/assets/idade-da-terra.jpg";
+import leaoSeteCabecas from "@/assets/leao-sete-cabecas.jpg";
+import dragaoMaldade from "@/assets/dragao-maldade.jpg";
+import terraEmTranse from "@/assets/terra-em-transe.jpg";
+
+import deusEOdiabo from "@/assets/deus-e-o-diabo.jpg";
+import barravento from "@/assets/barravento.jpg";
+import aliceDosAnjos from "@/assets/alice-dos-anjos.jpg";
+import depoisDaChuva from "@/assets/depois-da-chuva.jpg";
+import dia11 from "@/assets/dia-11.jpg";
 
 // Placeholder data - replace with actual images and info
 const productions = [
     {
         id: 1,
         title: "Terra em Transe",
-        role: "Direção",
+        role: "Direção: Glauber Rocha",
         year: "1967",
         description: "Uma alegoria política sobre o poder e a corrupção em Eldorado.",
-        image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop", // Placeholder
+        image: terraEmTranse,
     },
     {
         id: 2,
-        title: "Deus e o Diabo",
-        role: "Roteiro",
+        title: "Deus e o Diabo na Terra do Sol",
+        role: "Direção: Glauber Rocha",
         year: "1964",
         description: "O marco do Cinema Novo que desafiou as convenções estéticas.",
-        image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2025&auto=format&fit=crop", // Placeholder
+        image: deusEOdiabo,
     },
     {
         id: 3,
         title: "Barravento",
-        role: "Direção",
+        role: "Direção: Glauber Rocha",
         year: "1962",
         description: "A estreia que revelou a força mística e social da Bahia.",
-        image: "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?q=80&w=2028&auto=format&fit=crop", // Placeholder
+        image: barravento,
     },
     {
         id: 4,
         title: "O Dragão da Maldade",
-        role: "Direção",
+        role: "Direção: Glauber Rocha",
         year: "1969",
         description: "A cor explode na tela como arma revolucionária.",
-        image: "https://images.unsplash.com/photo-1478720568477-152d9b164e63?q=80&w=2098&auto=format&fit=crop", // Placeholder
+        image: dragaoMaldade,
     },
     {
         id: 5,
         title: "A Idade da Terra",
-        role: "Direção",
+        role: "Direção: Glauber Rocha",
         year: "1980",
         description: "O testamento cinematográfico e profético de Glauber.",
-        image: "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=2056&auto=format&fit=crop", // Placeholder
+        image: idadeDaTerra,
+    },
+    {
+        id: 6,
+        title: "O Leão de Sete Cabeças",
+        role: "Direção: Glauber Rocha",
+        year: "1970",
+        description: "Uma reflexão sobre o colonialismo e a revolução na África.",
+        image: leaoSeteCabecas,
+    },
+    {
+        id: 7,
+        title: "Alice dos Anjos",
+        role: "Direção: Daniel Leite Almeida",
+        year: "2021",
+        description: "Releitura de Alice no País das Maravilhas no sertão nordestino.",
+        image: aliceDosAnjos,
+    },
+    {
+        id: 8,
+        title: "Depois da Chuva",
+        role: "Direção: Marilia Hughes Guerreiro, Cláudio Marques",
+        year: "2013",
+        description: "Jovem de 16 anos vivencia a efervescência política das Diretas Já em Salvador (1984).",
+        image: depoisDaChuva,
+    },
+    {
+        id: 9,
+        title: "Dia 11",
+        role: "Direção: Pedro Rodrigues",
+        year: "2024",
+        description: "A tragédia de Santo Antonio de Jesus",
+        image: dia11,
     },
 ];
 
@@ -49,6 +92,9 @@ const GaleriaNegativo = () => {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
     const [showRightArrow, setShowRightArrow] = useState(true);
+    const lastInteractionRef = useRef(0);
+    const isHoveredRef = useRef(false);
+    const isFocusedRef = useRef(false);
 
     const handleScroll = () => {
         if (scrollContainerRef.current) {
@@ -58,7 +104,50 @@ const GaleriaNegativo = () => {
         }
     };
 
+    // Interval auto-scroll
+    useEffect(() => {
+        const interval = setInterval(() => {
+            // Pause if user interacted recently OR is floating/focusing content
+            if (
+                Date.now() - lastInteractionRef.current < 4000 ||
+                isHoveredRef.current ||
+                isFocusedRef.current
+            ) {
+                return;
+            }
+
+            if (scrollContainerRef.current) {
+                const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+                const maxScroll = scrollWidth - clientWidth;
+
+                // Determine card width based on screen size (must match CSS: 85vw mobile, 600px desktop)
+                // We add a small buffer or just use the exact logic
+                const isMobile = window.innerWidth < 768;
+                const scrollAmount = isMobile ? window.innerWidth * 0.85 : 600;
+
+                // If currently at the end (within tolerance), reset to start
+                if (Math.ceil(scrollLeft) >= maxScroll - 10) {
+                    scrollContainerRef.current.scrollTo({
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                } else {
+                    // Otherwise, scroll forward but don't overshoot max
+                    const newScrollLeft = Math.min(scrollLeft + scrollAmount, maxScroll);
+
+                    scrollContainerRef.current.scrollTo({
+                        left: newScrollLeft,
+                        behavior: "smooth",
+                    });
+                }
+            }
+        }, 3000); // 3 seconds
+
+        return () => clearInterval(interval);
+    }, []);
+
     const scroll = (direction: "left" | "right") => {
+        lastInteractionRef.current = Date.now();
         if (scrollContainerRef.current) {
             const scrollAmount = 400; // Adjust scroll amount
             const newScrollLeft =
@@ -81,10 +170,10 @@ const GaleriaNegativo = () => {
 
             <div className="container mx-auto px-4 mb-12 relative z-20 text-center">
                 <h2 className="font-stencil text-4xl md:text-6xl text-accent mb-4 tracking-wider uppercase">
-                    Galeria Glauberiana
+                    ACERVO GLAUBER & CONVIDADOS
                 </h2>
                 <p className="font-grotesque text-white/60 text-lg max-w-2xl mx-auto">
-                    Um mergulho nos frames que construíram a história do cinema nacional.
+                    A cinematografia de Glauber Rocha e o catálogo de obras dos artistas que ele influenciou.
                 </p>
             </div>
 
@@ -114,6 +203,8 @@ const GaleriaNegativo = () => {
                 <div
                     ref={scrollContainerRef}
                     onScroll={handleScroll}
+                    onMouseEnter={() => (isHoveredRef.current = true)}
+                    onMouseLeave={() => (isHoveredRef.current = false)}
                     className="flex overflow-x-auto gap-0 pb-8 pt-8 px-4 md:px-20 hide-scrollbar snap-x snap-mandatory"
                     style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                 >
@@ -140,7 +231,10 @@ const GaleriaNegativo = () => {
                     {productions.map((item) => (
                         <div
                             key={item.id}
-                            className="relative flex-shrink-0 w-[85vw] md:w-[600px] snap-center group"
+                            className="relative flex-shrink-0 w-[85vw] md:w-[600px] snap-center group outline-none"
+                            tabIndex={0}
+                            onFocus={() => (isFocusedRef.current = true)}
+                            onBlur={() => (isFocusedRef.current = false)}
                         >
                             {/* Frame Border (The Negative) */}
                             <div className="bg-black p-6 md:p-8 mx-[-1px] border-y-[16px] border-black relative">
@@ -159,26 +253,26 @@ const GaleriaNegativo = () => {
 
 
                                 {/* Content Container (The Image Area) */}
-                                <div className="relative aspect-video bg-zinc-900 overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_50px_rgba(255,255,255,0.1)] transition-all duration-500">
+                                <div className="relative aspect-video bg-zinc-900 overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_50px_rgba(255,255,255,0.1)] group-focus:shadow-[0_0_50px_rgba(255,255,255,0.1)] transition-all duration-500">
                                     <img
                                         src={item.image}
                                         alt={item.title}
-                                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0"
+                                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0 group-focus:grayscale-0"
                                     />
 
                                     {/* Overlay Info */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                                        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                            <span className="inline-block px-2 py-1 bg-primary text-black text-xs font-bold mb-2 font-stencil">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 md:p-6">
+                                        <div className="transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 md:group-focus:translate-y-0 transition-transform duration-300">
+                                            <span className="inline-block px-1.5 py-0.5 md:px-2 md:py-1 bg-primary text-black text-[10px] md:text-xs font-bold mb-1 md:mb-2 font-stencil">
                                                 {item.year}
                                             </span>
-                                            <h3 className="text-2xl md:text-3xl font-stencil text-white mb-1">
+                                            <h3 className="text-sm md:text-3xl font-stencil text-white mb-0.5 md:mb-1 leading-tight">
                                                 {item.title}
                                             </h3>
-                                            <p className="text-primary font-grotesque text-sm mb-2 uppercase tracking-widest">
+                                            <p className="text-yellow-400 font-grotesque text-[10px] md:text-sm mb-1 md:mb-2 uppercase tracking-widest line-clamp-1">
                                                 {item.role}
                                             </p>
-                                            <p className="text-white/80 font-grotesque text-sm md:text-base line-clamp-2">
+                                            <p className="text-white/80 font-grotesque text-[10px] md:text-base line-clamp-2 md:line-clamp-3 leading-snug">
                                                 {item.description}
                                             </p>
                                         </div>

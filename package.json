@@ -1,6 +1,6 @@
 {
   "name": "vite_react_shadcn_ts",
-  "homepage": "https://dereklamego.github.io/glauberrocha",
+  "homepage": "https://umacameranamao.github.io/glauberrocha",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -49,6 +49,7 @@
     "cmdk": "^1.1.1",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
+    "html2canvas": "^1.4.1",
     "input-otp": "^1.4.2",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.462.0",
@@ -57,7 +58,7 @@
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.61.1",
-    "react-leaflet": "^5.0.0",
+    "react-leaflet": "^4.2.1",
     "react-resizable-panels": "^2.1.9",
     "react-router-dom": "^6.30.1",
     "recharts": "^2.15.4",
@@ -70,6 +71,7 @@
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "@tailwindcss/typography": "^0.5.16",
+    "@types/html2canvas": "^0.5.35",
     "@types/node": "^22.16.5",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",

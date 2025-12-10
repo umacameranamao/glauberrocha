@@ -1,12 +1,131 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Camera } from "lucide-react";
-import cineMadrigal from "@/assets/cine-madrigal.jpg";
+import { useAudio } from "@/contexts/AudioContext";
+import saudadeAudio from "@/assets/03-Saudade.mp3";
+import cineMadrigal from "@/assets/cine-madrigal.png";
 import cineGlauberExterior from "@/assets/cine-glauber-exterior.jpg";
-import GraficoCinema from "./GraficoCinema";
+import MapaCinemas from "./MapaCinemas";
 
 const Ato4Revolucao = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [sliderValue, setSliderValue] = useState(50);
+
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [autoplayBlocked, setAutoplayBlocked] = useState(false);
+
+  const { currentAudioId, playAudio, pauseAudio, isThemeMuted } = useAudio();
+  const themeAudioId = "ato4-theme";
+
+  // Sync with global mute preference
+  useEffect(() => {
+    setIsMuted(isThemeMuted);
+  }, [isThemeMuted]);
+
+  // Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          console.log('[ATO4] Intersection changed:', entry.isIntersecting, 'ratio:', entry.intersectionRatio);
+          setIsIntersecting(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
+  // Audio Logic
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    let fadeOutInterval: number | undefined;
+
+    const attemptPlay = async () => {
+      try {
+        audio.volume = 1;
+        playAudio(themeAudioId); // Always register this audio
+        await audio.play();
+        setAutoplayBlocked(false);
+      } catch (err) {
+        console.warn("Autoplay blocked:", err);
+        setAutoplayBlocked(true);
+      }
+    };
+
+    const fadeOut = () => {
+      if (fadeOutInterval) clearInterval(fadeOutInterval);
+      if (audio.paused) return;
+
+      fadeOutInterval = window.setInterval(() => {
+        if (audio.volume > 0.1) {
+          audio.volume -= 0.1;
+        } else {
+          audio.pause();
+          audio.volume = 1;
+          if (currentAudioId === themeAudioId) {
+            pauseAudio();
+          }
+        }
+      }, 100);
+    };
+
+    // Allow this Act to take over from other Act theme music
+    const isOtherActPlaying = currentAudioId && !currentAudioId.includes('custom-audio') && currentAudioId !== themeAudioId;
+
+    if (isIntersecting && !autoplayBlocked) {
+      if (fadeOutInterval) clearInterval(fadeOutInterval);
+      audio.volume = 1;
+      attemptPlay();
+    } else {
+      fadeOut();
+    }
+
+    return () => {
+      if (fadeOutInterval) clearInterval(fadeOutInterval);
+    };
+  }, [isIntersecting, autoplayBlocked, currentAudioId, playAudio, pauseAudio]);
+
+  // Retry on interaction if blocked
+  useEffect(() => {
+    if (autoplayBlocked) {
+      const handleInteraction = () => {
+        const audio = audioRef.current;
+        if (audio && isIntersecting && (!currentAudioId || currentAudioId === themeAudioId)) {
+          audio.play().then(() => {
+            setAutoplayBlocked(false);
+            if (currentAudioId !== themeAudioId) {
+              playAudio(themeAudioId);
+            }
+          }).catch(err => console.warn("Retry failed:", err));
+        }
+      };
+
+      const events = ['click', 'keydown', 'touchstart', 'scroll', 'wheel'];
+      events.forEach(event => window.addEventListener(event, handleInteraction, { once: true }));
+
+      return () => {
+        events.forEach(event => window.removeEventListener(event, handleInteraction));
+      };
+    }
+  }, [autoplayBlocked, isIntersecting, currentAudioId, playAudio, pauseAudio]);
+
+  // Sync Mute State
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.muted = isMuted;
+    }
+  }, [isMuted]);
 
   const chartData = [
     { year: '1955', films: 10, label: "Pré-CN" },
@@ -26,27 +145,81 @@ const Ato4Revolucao = () => {
       {/* Background texture */}
       <div className="absolute inset-0 film-grain opacity-10" />
 
+      <audio
+        ref={audioRef}
+        src={saudadeAudio}
+        loop
+        preload="auto"
+        playsInline
+      />
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="font-stencil text-5xl md:text-7xl text-primary mb-6 tracking-wider">
-              O "DUELO" DOS CINEMAS DE RUA
+              O contraste de cinemas
             </h2>
           </div>
 
           {/* Texto Jornalístico */}
           <div className="prose prose-lg prose-invert mx-auto space-y-8">
             <p className="font-grotesque text-lg text-foreground/90 leading-relaxed text-justify max-w-3xl mx-auto">
-              Em Vitória da Conquista, sua terra natal, as ruínas do Cine Madrigal, fechado desde 2007 e alvo de promessas não cumpridas de restauração, simbolizam o abandono dos espaços culturais no interior. O prédio, que um dia reuniu a população em torno da tela grande, hoje resiste apenas na memória da cidade. A imagem difere do Cine Glauber Rocha, em Salvador, um dos últimos cinemas de rua em funcionamento na capital baiana, que se tornou símbolo de resistência.
+              Sem salas ativas e com distribuição desigual, o cinema brasileiro corre o risco de existir apenas como catálogo, sem público e sem impacto. Como reforça <a href="https://rollingstone.com.br/cinema/kleber-mendonca-filho-nao-quer-fazer-filmes-para-o-streaming-melhor-nos-cinemas/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Kleber Mendonça Filho</span></a>, é a sala que constrói “o caráter e a história de um filme”.
+
+            </p>
+
+            {/* Mapa de Cinemas */}
+            <div className="my-16 max-w-4xl mx-auto">
+              <h3 className="font-stencil text-2xl text-center text-primary mb-6">
+                CIRCUITO DE CINEMAS EM SALVADOR
+              </h3>
+              {/* Mapa Interativo */}
+              <div className="w-full max-w-4xl mx-auto my-12">
+                <MapaCinemas />
+                <p className="text-center text-muted-foreground mt-4 font-grotesque text-sm">
+                  Mapa interativo das salas de cinema ativas e inativas na capital
+                </p>
+              </div>
+            </div>
+
+            <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
+              Em Vitória da Conquista, o nome de Glauber Rocha estampa aeroportos, teatro e casa, mas o Cine Madrigal, histórico cinema de rua fundado em 1968, está fechado e sem expectativas de recuperação. Ali ocorreu a pré-estreia de Central do Brasil, com a presença de Walter Salles, como lembra o diretor Daniel Leite.
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              O contraste entre o Madrigal e o Glauber Rocha reflete o próprio paradoxo que o cineasta viveu: um artista que falava sobre o povo, mas que o povo nem sempre conseguia ver. É possível que a falta de acesso ao cinema no interior seja a causa de muitos conterrâneos ainda desconhecerem sua obra.
+              Segundo ele, havia recursos para reformá-lo, mas a pouca articulação entre Estado e Município levou à devolução do dinheiro. A reportagem procurou a Prefeitura e o Governo do Estado, mas não obteve retorno.
             </p>
 
+            <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
+              Hoje, Conquista apenas conta com dois cinemas, ambos em shoppings. Filmes produzidos na cidade raramente conseguem entrar em cartaz. A cidade preserva o nome de Glauber, mas abandona o que o tornaria vivo: a experiência em sala.
+            </p>
+
+            <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
+              Por outro lado, o cinema que leva seu nome, o Cine Glauber Rocha em Salvador, se destaca em meio à hegemonia das salas de shoppings. Ir ao Glauber, afirma Hughes, é também “se relacionar com a cidade: ver o pôr do sol na Praça Castro Alves, tomar um café, caminhar pela Rua Chile. Shopping não tem isso, pois são todos iguais”.
+            </p>
+
+            <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
+              Ele está localizado no Centro Histórico de Salvador e conta com uma curadoria que abrange desde produções independentes até filmes comerciais. Os ingressos são acessíveis à população, geralmente entre 5 e até 15 reais.
+            </p>
+
+            <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
+              A permanência do cinema só foi possível por iniciativa de Cláudio Marques, sócio-fundador do espaço, que conduziu o processo de captação de recursos e reforma do antigo Cine Guarani.
+            </p>
+
+            <div className="bg-card/50 backdrop-blur-sm border-l-4 border-primary p-6 rounded-r-xl my-8 max-w-3xl mx-auto">
+              <p className="font-grotesque text-lg text-foreground italic mb-4">
+                “Não foi o poder público que revitalizou o espaço. Foi sonho, persistência e trabalho”
+              </p>
+              <p className="text-sm text-accent font-stencil tracking-widest uppercase">
+                — Marília Hughes
+              </p>
+            </div>
+
+
+
             {/* Comparativo Visual: Slider */}
-            <div className="my-16 not-prose">
+            <div className="w-full max-w-4xl mx-auto my-16 not-prose">
               <h3 className="font-stencil text-2xl text-center text-primary mb-6">
                 REALIDADES OPOSTAS
               </h3>
@@ -106,27 +279,23 @@ const Ato4Revolucao = () => {
             </div>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              Por isso, a reportagem também propõe refletir sobre como os filmes nacionais chegam ao público. Como essas produções são divulgadas? Quem é esse público e onde ele está? A concentração de salas de cinema nas grandes cidades e a dependência de patrocínios e editais ainda limitam o acesso. É preciso observar como esses espaços são viabilizados e quais produções ganham visibilidade suficiente para despertar o interesse da população, especialmente entre aqueles que normalmente não têm acesso a esses espaços culturais.
-            </p>
-
-            {/* Gráfico de Dados */}
-            <GraficoCinema />
-
-            <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              Pensar no legado de Glauber é, portanto, também pensar em como o cinema nacional pode ser mais acessível, formador de pensamento crítico e instrumento de educação.
+              Ela defende que é preciso incentivar a experiência coletiva da sala escura.
             </p>
 
             {/* Fechamento Destacado */}
             <div className="mt-16 p-8 border-l-4 border-primary bg-primary/5 rounded-r-xl">
               <p className="font-grotesque text-xl text-foreground italic leading-relaxed">
-                "Entender que sua revolução era, acima de tudo, uma batalha por acesso e representação. Uma batalha que, a julgar pelas ruínas do Cine Madrigal e estrutura de distribuição e exibição no país, ainda está longe de terminar."
+                “Nas telas individuais, cada um vê sozinho. A gente perde o diálogo e a troca. A sala ainda é insubstituível”.
+              </p>
+              <p className="text-sm text-accent font-stencil tracking-widest uppercase mt-4">
+                — Marília Hughes
               </p>
             </div>
           </div>
         </div>
       </div>
 
-    </section>
+    </section >
   );
 };
 

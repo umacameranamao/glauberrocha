@@ -8,9 +8,9 @@ const Navigation = () => {
   const sections = [
     { id: "hero", label: "Início" },
     { id: "ato1", label: "A cena pop" },
-    { id: "ato2", label: "O que Glauber entendia por \"cultura\"" },
-    { id: "ato3", label: "Complexidade de Glauber" },
-    { id: "ato4", label: "O \"duelo\" dos cinemas de rua" },
+    { id: "ato2", label: "Visão crítica" },
+    { id: "ato3", label: "Desafios do cinema" },
+    { id: "ato4", label: "O contraste de cinemas" },
     { id: "epilogo", label: "Manifesto Interativo" },
   ];
 
@@ -48,7 +48,7 @@ const Navigation = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-primary/20">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h2 className="font-stencil text-lg text-primary tracking-wider">ROTEIRO</h2>
+            <h2 className="font-stencil text-lg text-primary tracking-wider">GLAUBER ROCHA</h2>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -63,12 +63,12 @@ const Navigation = () => {
                 <li key={section.id}>
                   <button
                     onClick={() => scrollToSection(section.id)}
-                    className={`font-grotesque text-sm hover:text-primary transition-colors relative ${activeSection === section.id ? "text-primary" : "text-muted-foreground"
+                    className={`font-grotesque text-sm hover:text-red-600 transition-colors relative ${activeSection === section.id ? "text-red-600" : "text-accent"
                       }`}
                   >
                     {section.label}
                     {activeSection === section.id && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-red-600" />
                     )}
                   </button>
                 </li>
@@ -86,7 +86,7 @@ const Navigation = () => {
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`font-grotesque text-2xl hover:text-primary transition-colors ${activeSection === section.id ? "text-primary" : "text-foreground"
+                className={`font-grotesque text-2xl hover:text-red-600 transition-colors ${activeSection === section.id ? "text-red-600" : "text-accent"
                   }`}
               >
                 {section.label}

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Download } from "lucide-react";
+import html2canvas from "html2canvas";
 
 const EpilogoManifesto = () => {
   const [selectedPhrases, setSelectedPhrases] = useState<string[]>([]);
   const [userName, setUserName] = useState("");
+  const manifestoRef = useRef<HTMLDivElement>(null);
 
   const manifestoPhrases = [
     "O CINEMA É UMA ARMA",
@@ -28,27 +30,24 @@ const EpilogoManifesto = () => {
     );
   };
 
-  const downloadManifesto = () => {
-    const manifestoText = `
-╔════════════════════════════════════════╗
-║   MANIFESTO GLAUBERIANO               ║
-║   ${userName || "ANÔNIMO"}            ║
-╚════════════════════════════════════════╝
+  const downloadManifesto = async () => {
+    if (!manifestoRef.current) return;
 
-${selectedPhrases.map((phrase) => `► ${phrase}`).join("\n\n")}
+    try {
+      const canvas = await html2canvas(manifestoRef.current, {
+        backgroundColor: null,
+        scale: 2,
+        useCORS: true,
+      });
 
-────────────────────────────────────────
-"Uma câmera na mão e uma ideia na cabeça"
-                              - Glauber Rocha
-    `;
-
-    const blob = new Blob([manifestoText], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `manifesto-${userName || "anonimo"}.txt`;
-    link.click();
-    URL.revokeObjectURL(url);
+      const image = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = image;
+      link.download = `manifesto-glauberiano-${userName || "anonimo"}.png`;
+      link.click();
+    } catch (error) {
+      console.error("Erro ao gerar manifesto:", error);
+    }
   };
 
   return (
@@ -63,7 +62,7 @@ ${selectedPhrases.map((phrase) => `► ${phrase}`).join("\n\n")}
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="font-stencil text-5xl md:text-7xl text-primary mb-6 tracking-wider">
+            <h2 className="font-stencil text-xl md:text-5xl lg:text-7xl text-primary mb-6 tracking-wider leading-tight">
               MANIFESTO INTERATIVO
             </h2>
             <div className="w-32 h-1 bg-primary mx-auto" />
@@ -72,8 +71,8 @@ ${selectedPhrases.map((phrase) => `► ${phrase}`).join("\n\n")}
           {/* Instruções */}
           <div className="text-center mb-12">
             <p className="font-grotesque text-lg text-foreground/80 max-w-2xl mx-auto leading-relaxed text-justify">
-              Monte seu próprio manifesto glauberiano. Escolha as frases que ecoam sua visão
-              revolucionária do cinema e da arte como arma de transformação.
+              Crie o seu manifesto glauberiano. Selecione as frases que dialogam com a forma como você entende o cinema, não como espetáculo, mas como confronto.
+
             </p>
           </div>
 
@@ -128,7 +127,10 @@ ${selectedPhrases.map((phrase) => `► ${phrase}`).join("\n\n")}
           {selectedPhrases.length > 0 && (
             <div className="mb-12 relative group perspective-1000">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-              <div className="relative border-2 border-accent/50 p-10 bg-card/95 backdrop-blur-xl rounded-xl shadow-2xl transform transition-transform duration-500 hover:rotate-1">
+              <div
+                ref={manifestoRef}
+                className="relative border-2 border-accent/50 p-10 bg-card/95 backdrop-blur-xl rounded-xl shadow-2xl transform transition-transform duration-500 hover:rotate-1"
+              >
                 {/* Decorative corners */}
                 <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-accent" />
                 <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-accent" />
@@ -215,7 +217,8 @@ ${selectedPhrases.map((phrase) => `► ${phrase}`).join("\n\n")}
                 <div className="space-y-3 font-grotesque text-foreground/80">
                   <div>
                     <span className="text-primary font-semibold">Título:</span>
-                    <p className="mt-1">A definir</p>
+                    <p className="mt-1">Glauber Rocha: "Uma câmera na mão e uma ideia na cabeça"
+                    </p>
                   </div>
                   <div>
                     <span className="text-primary font-semibold">Formato:</span>
@@ -235,9 +238,10 @@ ${selectedPhrases.map((phrase) => `► ${phrase}`).join("\n\n")}
               {/* Equipe Jornalística */}
               <div className="space-y-4">
                 <h4 className="font-stencil text-xl text-accent mb-6 tracking-wider">
-                  EQUIPE JORNALÍSTICA
+                  EQUIPE TÉCNICA
                 </h4>
                 <div className="space-y-3 font-grotesque text-foreground/80">
+
                   <div>
                     <span className="text-primary font-semibold">Editoria:</span>
                     <p className="mt-1">Cultura</p>
@@ -261,6 +265,33 @@ ${selectedPhrases.map((phrase) => `► ${phrase}`).join("\n\n")}
                   <div>
                     <span className="text-primary font-semibold">Revisão:</span>
                     <p className="mt-1">Luiza Vitor</p>
+                  </div>
+                  <div>
+                    <span className="text-primary font-semibold">Desenvolvedor:</span>
+                    <p className="mt-1">Derek Lamego</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Créditos das Músicas */}
+              <div className="col-span-1 md:col-span-2 mt-8 border-t border-primary/20 pt-8">
+                <h4 className="font-stencil text-xl text-accent mb-6 tracking-wider text-left">
+                  TRILHA SONORA
+                </h4>
+                <div className="space-y-4 font-grotesque text-foreground/80 text-left">
+                  <div>
+                    <p className="font-bold text-primary">Sérgio Ricardo — Deus e o Diabo na Terra do Sol</p>
+                    <p className="text-sm opacity-80">(canção original de Sérgio Ricardo e Glauber Rocha, presente no filme Deus e o Diabo)</p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-primary">Gal Costa — Olá</p>
+                    <p className="text-sm opacity-80">(canção original de Sérgio Ricardo, presente no filme Terra em Transe)</p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-primary">Gutemberg Vieira — Tristeza</p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-primary">Gutemberg Vieira — Saudade</p>
                   </div>
                 </div>
               </div>
