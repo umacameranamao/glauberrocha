@@ -244,7 +244,7 @@ const Ato1Bahia = () => {
                         <div className="space-y-12">
                             <div ref={audioTriggerRef} className="max-w-3xl mx-auto space-y-6">
                                 <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
-                                    Além de cineasta, Glauber Rocha foi poeta. Pesquisadores mapearam a obra do artista em Poemas Eskolhydos e Cartas ao Mundo, que defendia a publicação dos textos como forma de preservar a base literária de seus filmes.
+                                    Além de cineasta, Glauber Rocha foi poeta. Pesquisadores mapearam a obra do artista em <span className="italic text-primary">Poemas Eskolhydos</span> e <span className="italic text-primary">Cartas ao Mundo</span>, que defendia a publicação dos textos como forma de preservar a base literária de seus filmes.
 
                                 </p>
                                 <div className="mb-16 text-center flex flex-col items-center">
@@ -271,10 +271,10 @@ const Ato1Bahia = () => {
                                     </p>
                                 </div>
                                 <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
-                                    O artista lembra que Dona Lúcia, mãe do cineasta, aprovou e incentivou o projeto após a apresentação, realizada no fim dos anos noventa, no Cine Madrigal, tradicional cinema de rua de Vitória da Conquista, enquanto a filha Paloma Rocha questionou os palavrões, aos quais ele respondeu que alterar “seria desonesto com o próprio poema”.
+                                    O artista lembra que Dona Lúcia, mãe do cineasta, aprovou e incentivou o projeto após a apresentação realizada no fim dos anos noventa, no Cine Madrigal, tradicional cinema de rua de Vitória da Conquista. Já a filha, Paloma Rocha, questionou os palavrões, ao que ele respondeu que alterar “seria desonesto com o próprio poema”.
                                 </p>
                                 <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
-                                    Após a morte de Dona Lúcia, Paloma barrou o lançamento do CD e autorizou apenas apresentações das canções.
+                                    Após a morte de Dona Lúcia, Paloma barrou o lançamento do CD e autorizou apenas as apresentações das canções.
                                 </p>
                                 <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
                                     Mesmo restrito, as interpretações revelam a força dos versos, como em “Saudade” e “Eu meu Santo”. A poesia “Letra Fera”, descrito como um “vômito de ideias”, ganhou interpretação inédita de Tarcísio Santos e Guigga Maraká. Segundo Gutemberg, a nova leitura “deu outra roupa para o manequim”.

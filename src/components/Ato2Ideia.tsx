@@ -188,7 +188,7 @@ const Ato2Ideia = () => {
               </p>
 
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8">
-                Foi no Clube de Cinema da Bahia, que o jovem Glauber se aproximou de debates políticos. Há registros de que ele, enquanto crítico de cinema, escreveu no Jornal do Brasil críticas a filmes como <a href="https://www.youtube.com/watch?v=FbcxQRuOa4o" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Orfeu Negro (1959)</span></a>, acusando de romantizar o país para o público estrangeiro e ignorar seus problemas sociais.
+                Foi no Clube de Cinema da Bahia, que o jovem Glauber se aproximou de debates políticos. Há registros de que ele, enquanto crítico de cinema, escreveu no Jornal do Brasil críticas a filmes como <a href="https://www.youtube.com/watch?v=FbcxQRuOa4o" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Orfeu Negro (1959)</span></a>, acusando a produção de romantizar o país para o público estrangeiro e ignorar seus problemas sociais.
               </p>
             </div>
           </div>
@@ -248,7 +248,7 @@ const Ato2Ideia = () => {
               ></iframe>
             </div>
             <p className="mt-4 text-sm text-center text-muted-foreground italic font-grotesque">
-              Glauber Rocha participa do filme “Le vent d'est” de Jean Luc Godard em 1970 e expõe ali os princípios de seu estilo cinematográfico. Reprodução: YouTube / rubs troll
+              Glauber Rocha participa do filme “Le vent d'est”, de Jean Luc Godard, em 1970, e expõe ali os princípios de seu estilo cinematográfico. Reprodução: YouTube / rubs troll
             </p>
           </div>
 

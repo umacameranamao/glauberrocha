@@ -44,6 +44,25 @@ const Ato4Revolucao = () => {
     };
   }, []);
 
+  // Scroll Direction Tracking
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current) {
+        setScrollDirection('down');
+      } else {
+        setScrollDirection('up');
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // Audio Logic
   useEffect(() => {
     const audio = audioRef.current;
@@ -87,11 +106,12 @@ const Ato4Revolucao = () => {
     // 1. No audio is playing
     // 2. This Act's theme is playing
     // 3. Another Act's theme is playing (transition)
-    // 4. BUT NOT if a specific manual audio is playing
+    // 4. BUT NOT if a specific manual audio is playing OR if Acervo audio is playing AND we are scrolling down
     const shouldPlay = isIntersecting && !autoplayBlocked && (
       !currentAudioId ||
       currentAudioId === themeAudioId ||
-      currentAudioId.includes('theme') ||
+      // Allow taking over Acervo ONLY if scrolling UP
+      (currentAudioId.includes('theme') && (!currentAudioId.includes('acervo') || scrollDirection === 'up')) ||
       currentAudioId.includes('ato') // catch-all for other acts
     ) && !(currentAudioId && !currentAudioId.includes('theme') && !currentAudioId.includes('ato'));
 
@@ -106,7 +126,7 @@ const Ato4Revolucao = () => {
     return () => {
       if (fadeOutInterval) clearInterval(fadeOutInterval);
     };
-  }, [isIntersecting, autoplayBlocked, currentAudioId, playAudio, pauseAudio]);
+  }, [isIntersecting, autoplayBlocked, currentAudioId, playAudio, pauseAudio, scrollDirection]);
 
   // Retry on interaction if blocked
   useEffect(() => {
@@ -200,7 +220,7 @@ const Ato4Revolucao = () => {
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              Segundo ele, havia recursos para reformá-lo, mas a pouca articulação entre Estado e Município levou à devolução do dinheiro. A reportagem procurou a Prefeitura e o Governo do Estado, mas não obteve retorno.
+              A Prefeitura de Vitória da Conquista informou, em resposta à Lei de Acesso à Informação, que o Cine Madrigal está sob responsabilidade da Secretaria Municipal de Educação. O ofício revela que "a edificação apresenta necessidade de intervenções físicas e, por essa razão, foram iniciadas ações preliminares visando a requalificação do espaço", mas indica que "até o momento, não há edital ou contrato finalizados, razão pela qual não há empresa contratada, valores definitivos ou cronograma consolidado." O município também busca recursos federais para viabilizar futuras intervenções no imóvel.
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
@@ -286,7 +306,7 @@ const Ato4Revolucao = () => {
                 </div>
               </div>
               <p className="text-center text-muted-foreground mt-4 font-grotesque text-sm">
-                Arraste para comparar as realidades dos cinemas. Fotos: Acervo próprio.
+                Arraste para comparar as realidades dos cinemas. Imagens: Júlio César Santos (Madrigal) e Adilton Venegeroles / Ag. A TARDE (Glauber Rocha).
               </p>
             </div>
 

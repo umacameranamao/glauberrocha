@@ -35,7 +35,7 @@ const EpilogoManifesto = () => {
 
     try {
       const canvas = await html2canvas(manifestoRef.current, {
-        backgroundColor: null,
+        background: "#000000", // Fix lint: types expect 'background'
         scale: 2,
         useCORS: true,
       });
@@ -214,62 +214,79 @@ const EpilogoManifesto = () => {
                 <h4 className="font-stencil text-xl text-accent mb-6 tracking-wider">
                   PROJETO
                 </h4>
-                <div className="space-y-3 font-grotesque text-foreground/80">
+                <div className="space-y-6 font-grotesque text-foreground/80">
                   <div>
-                    <span className="text-primary font-semibold">Título:</span>
-                    <p className="mt-1">Glauber Rocha: "Uma câmera na mão e uma ideia na cabeça"
+                    <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Título</span>
+                    <p>Glauber Rocha: "Uma câmera na mão e uma ideia na cabeça"
                     </p>
                   </div>
                   <div>
-                    <span className="text-primary font-semibold">Formato:</span>
-                    <p className="mt-1">Reportagem multimídia interativa</p>
+                    <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Formato</span>
+                    <p>Reportagem multimídia interativa</p>
                   </div>
                   <div>
-                    <span className="text-primary font-semibold">Ano:</span>
-                    <p className="mt-1">2025</p>
+                    <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Ano</span>
+                    <p>2025</p>
                   </div>
                   <div>
-                    <span className="text-primary font-semibold">Instituição:</span>
-                    <p className="mt-1">Faculdade de Comunicação Social - Jornalismo UFRB</p>
+                    <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Instituição</span>
+                    <p>Faculdade de Comunicação Social - Jornalismo UFRB</p>
                   </div>
                 </div>
               </div>
 
               {/* Equipe Jornalística */}
-              <div className="space-y-4">
+              <div className="space-y-8">
                 <h4 className="font-stencil text-xl text-accent mb-6 tracking-wider">
                   EQUIPE TÉCNICA
                 </h4>
-                <div className="space-y-3 font-grotesque text-foreground/80">
+                <div className="space-y-6 font-grotesque text-foreground/80">
 
                   <div>
-                    <span className="text-primary font-semibold">Editoria:</span>
-                    <p className="mt-1">Cultura</p>
+                    <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Editoria</span>
+                    <p>Cultura</p>
                   </div>
+
                   <div>
-                    <span className="text-primary font-semibold">Redação:</span>
-                    <p className="mt-1">Adrielle Alvim e Sinara Oliveira</p>
+                    <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Produção</span>
+                    <p>Adrielle Alvim, Kailane Rodrigues, Luiza Vitor e Raiane Santos</p>
+                    <p className="mt-1"><span className="opacity-70">Assistência:</span> Caique Fernandes e Sinara Oliveira</p>
                   </div>
+
                   <div>
-                    <span className="text-primary font-semibold">Fotógrafo:</span>
-                    <p className="mt-1">Caique Fernandes</p>
+                    <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Equipe de Redação</span>
+                    <p><span className="opacity-70">Texto:</span> Adrielle Alvim</p>
+                    <p><span className="opacity-70">Apoio editorial:</span> Sinara Oliveira</p>
+                    <p><span className="opacity-70">Edição de Texto:</span> Luiza Vitor</p>
                   </div>
+
                   <div>
-                    <span className="text-primary font-semibold">Áudio:</span>
-                    <p className="mt-1">Kailane Rodrigues</p>
+                    <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Equipe de Entrevistas</span>
+                    <p><span className="opacity-70">Repórter:</span> Adrielle Alvim, Kailane Rodrigues, Luiza Vitor e Raiane Santos.</p>
+                    <p className="mt-1"><span className="opacity-70">Entrevistados:</span> Gutemberg Vieira, Glauber Lacerda, Tarcísio Santos, Guigga Maraká, Marília Hughes, Daniel Leite, Humberto Alves e Pedro Rodrigues.</p>
                   </div>
+
                   <div>
-                    <span className="text-primary font-semibold">Vídeo:</span>
-                    <p className="mt-1">Raiane Santos</p>
+                    <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Equipe de Áudio-Reportagem</span>
+                    <p><span className="opacity-70">Narração, Captação, Edição e Mixagem:</span> Kailane Rodrigues</p>
                   </div>
+
                   <div>
-                    <span className="text-primary font-semibold">Revisão:</span>
-                    <p className="mt-1">Luiza Vitor</p>
+                    <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Equipe de Site</span>
+                    <p><span className="opacity-70">Desenvolvido por:</span> Derek Lamego</p>
+                    <p><span className="opacity-70">Apoio de Desenvolvimento:</span> Adrielle Alvim</p>
+                    <p><span className="opacity-70">Design:</span> Adrielle Alvim</p>
+                    <p><span className="opacity-70">Curadoria multimídia:</span> Adrielle Alvim, Kailane Rodrigues, Luiza Vitor e Raiane Santos</p>
+                    <p className="mt-1"><span className="opacity-70">Contribuição criativa:</span> Kailane Rodrigues, Luiza Vitor, Raiane Santos</p>
                   </div>
+
                   <div>
-                    <span className="text-primary font-semibold">Desenvolvedor:</span>
-                    <p className="mt-1">Derek Lamego</p>
+                    <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Equipe de Vídeo</span>
+                    <p><span className="opacity-70">Repórter:</span> Raiane Santos</p>
+                    <p><span className="opacity-70">Imagens:</span> Adrielle Alvim</p>
+                    <p><span className="opacity-70">Edição de Vídeo:</span> Adrielle Alvim e Raiane Santos</p>
                   </div>
+
                 </div>
               </div>
 
@@ -289,9 +306,15 @@ const EpilogoManifesto = () => {
                   </div>
                   <div>
                     <p className="font-bold text-primary">Gutemberg Vieira — Tristeza</p>
+                    <p className="text-sm opacity-80">(canção composta a partir de um poema de Glauber Rocha)</p>
                   </div>
                   <div>
                     <p className="font-bold text-primary">Gutemberg Vieira — Saudade</p>
+                    <p className="text-sm opacity-80">(canção composta a partir de um poema de Glauber Rocha)</p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-primary">Sérgio Ricardo — Sertão vai virar mar</p>
+                    <p className="text-sm opacity-80">(canção original de Sérgio Ricardo e Glauber Rocha, presente no filme Deus e o Diabo)</p>
                   </div>
                 </div>
               </div>

@@ -6,6 +6,9 @@ import leaoSeteCabecas from "@/assets/leao-sete-cabecas.jpg";
 import dragaoMaldade from "@/assets/dragao-maldade.jpg";
 import terraEmTranse from "@/assets/terra-em-transe.jpg";
 
+import { useAudio } from "@/contexts/AudioContext";
+import acervoAudio from "@/assets/acervo-theme.mp3";
+
 import deusEOdiabo from "@/assets/deus-e-o-diabo.jpg";
 import barravento from "@/assets/barravento.jpg";
 import aliceDosAnjos from "@/assets/alice-dos-anjos.jpg";
@@ -104,6 +107,102 @@ const GaleriaNegativo = () => {
         }
     };
 
+    // Audio Logic
+    const { currentAudioId, playAudio, pauseAudio, isThemeMuted } = useAudio();
+    const themeAudioId = "acervo-theme";
+    const [isIntersecting, setIsIntersecting] = useState(false);
+    const sectionRef = useRef<HTMLElement>(null);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+    const [isMuted, setIsMuted] = useState(false);
+
+    // Sync with global mute preference
+    useEffect(() => {
+        setIsMuted(isThemeMuted);
+    }, [isThemeMuted]);
+
+    // Intersection Observer
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    setIsIntersecting(entry.isIntersecting);
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) observer.unobserve(sectionRef.current);
+        };
+    }, []);
+
+    // Scroll Direction Tracking
+    const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
+    const lastScrollY = useRef(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY.current) {
+                setScrollDirection('down');
+            } else {
+                setScrollDirection('up');
+            }
+            lastScrollY.current = currentScrollY;
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // Audio Playback Logic
+    useEffect(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        // If this section is visible and we aren't playing our theme yet, start it
+        // This will take over from Ato4 or others
+        // But if Act 4 is playing, ONLY take over if scrolling DOWN
+        if (isIntersecting && currentAudioId !== themeAudioId) {
+            const isAto4Playing = currentAudioId && currentAudioId.includes('ato4');
+            const shouldTakeOver = !isAto4Playing || scrollDirection === 'down';
+
+            if (shouldTakeOver) {
+                playAudio(themeAudioId);
+            }
+        }
+    }, [isIntersecting, playAudio, currentAudioId, scrollDirection]);
+
+    // React to AudioContext changes
+    useEffect(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        if (currentAudioId === themeAudioId) {
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Audio play prevented:", error);
+                });
+            }
+        } else {
+            // If another audio took over (e.g. user scrolled back up to Ato 4), pause.
+            // Or if Global Pause was triggered.
+            audio.pause();
+        }
+    }, [currentAudioId]);
+
+    // Sync Mute State
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.muted = isMuted;
+        }
+    }, [isMuted]);
+
     // Interval auto-scroll
     useEffect(() => {
         const interval = setInterval(() => {
@@ -163,7 +262,14 @@ const GaleriaNegativo = () => {
     };
 
     return (
-        <section className="relative bg-black py-20 overflow-hidden select-none">
+        <section ref={sectionRef} className="relative bg-black py-20 overflow-hidden select-none">
+            <audio
+                ref={audioRef}
+                src={acervoAudio}
+                loop
+                preload="auto"
+                playsInline
+            />
             {/* Light Table Effect Background */}
             <div className="absolute inset-0 bg-white/5 opacity-50 pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none z-10" />
