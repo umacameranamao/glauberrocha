@@ -164,13 +164,10 @@ const Ato3Salvador = () => {
           <div className="max-w-4xl mx-auto mb-16 text-left space-y-6">
             <div className="prose prose-lg prose-invert mx-auto">
               <p className="font-grotesque text-lg text-foreground/90 leading-relaxed text-justify max-w-3xl mx-auto mb-8">
-                Hoje, o cenário é o mesmo: a principal batalha do audiovisual baiano é descentralizar recursos para que os filmes existam e garantir o alcance às pessoas.
+                Hoje, o cenário do audiovisual baiano é marcado por um paradoxo: nunca foi tão possível filmar, mas nunca foi tão difícil exibir. Por décadas, o financiamento para produção se concentrou no eixo Rio–São Paulo e, na Bahia, quase exclusivamente em Salvador.
               </p>
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto mb-8">
-                Por décadas, o financiamento para produção se concentrou no eixo Rio–São Paulo e, na Bahia, quase exclusivamente em Salvador.
-              </p>
-              <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto mb-8">
-                A Lei Paulo Gustavo permitiu que cidades sem políticas culturais próprias, ou que nunca acessaram o <a href="https://www.gov.br/ancine/pt-br/fsa/institucional/sobre-o-fsa" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Fundo Setorial do Audiovisual (FSA)</span></a>, passassem a financiar filmes produzidos localmente, como é o caso do cineasta Pedro Rodrigues, que revela que a lei foi a possibilidade de produzir o seu documentário “DIA 11”.
+                A <span className="italic text-primary">Lei Paulo Gustavo</span>, criada por meio da Lei Complementar nº 195, em 08 de julho de 2022, permitiu que cidades sem políticas culturais próprias, ou que nunca acessaram o <a href="https://www.gov.br/ancine/pt-br/fsa/institucional/sobre-o-fsa" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Fundo Setorial do Audiovisual (FSA)</span></a>, passassem a financiar filmes produzidos localmente, como é o caso do cineasta Pedro Rodrigues, que revela que a lei foi a possibilidade de produzir o seu documentário <span className="italic text-primary">“DIA 11”</span>, obra que fala sobre a explosão da fábrica de fogos, ocorrida no dia 11 de dezembro de 1998 em Santo Antônio de Jesus.
               </p>
               <div className="bg-card/50 backdrop-blur-sm border-l-4 border-primary p-6 rounded-r-xl my-8 max-w-3xl mx-auto">
                 <p className="font-grotesque text-lg text-foreground italic mb-4">
@@ -181,10 +178,13 @@ const Ato3Salvador = () => {
                 </p>
               </div>
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto mb-8">
-                Por outro lado, Daniel Leite, presidente da Associação do Setor Audiovisual do Sudoeste da Bahia (SASB) e diretor de <a href="https://www.youtube.com/watch?v=S_1DjClQsFs" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Alice dos Anjos (2021)</span></a>, premiado no 54º Festival de Brasília, viveu a ironia de ser celebrado internacionalmente e, mesmo assim, a demora em exibir o filme em Vitória da Conquista, onde foi produzido.
+                Mas a distribuição continua sendo o grande obstáculo. Daniel Leite, presidente da Associação do Setor Audiovisual do Sudoeste da Bahia (SASB) e diretor de <a href="https://www.youtube.com/watch?v=S_1DjClQsFs" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Alice dos Anjos (2021)</span></a>, premiado no 54º Festival de Brasília, viveu a ironia de ser celebrado internacionalmente e, mesmo assim, a demora em exibir o filme em Vitória da Conquista, onde foi produzido.
               </p>
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto mb-8">
-                Em 2022, quando finalmente chegou à Mostra Cinema Conquista, festival organizado pela UESB, o público precisou “sentar no chão”, segundo o diretor. “Quer sessão lotada? Passe filme que foi feito aqui!”, anuncia. O problema, diz ele, não é falta de interesse, mas as barreiras econômicas, geográficas e de distribuição.
+                Em 2022, quando finalmente chegou à <span className="italic text-primary">Mostra Cinema Conquista</span>, festival organizado pela Universidade Estadual do Sudoeste da Bahia, o público precisou “sentar no chão”, segundo o diretor. “Quer sessão lotada? Passe filme que foi feito aqui!”, anuncia. O problema, diz ele, não é falta de interesse, mas as barreiras econômicas.
+              </p>
+              <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto mb-8">
+                Para tentar romper esse isolamento, a SASB passou a organizar caravanas. Moradores da zona rural que nunca haviam pisado em uma sala escura foram levados de van para assistir ao cinema regional durante o festival. Ao final das sessões, os testemunhos eram de pura emoção. "Isso é muito poderoso. Porque quando a gente fala sobre nós e para nós, estamos dando protagonismo para pessoas que, historicamente, são invisibilizadas", reflete Daniel.
               </p>
               <div className="mt-8 mb-16 flex flex-col items-center">
                 <img
@@ -197,7 +197,7 @@ const Ato3Salvador = () => {
                 </p>
               </div>
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto mb-8">
-                O gargalo se repete em escala nacional. Como alerta a cineasta e gestora do Cine Glauber Rocha, Marília Hughes, o Brasil vive uma “crise de exibição”: há recursos para produzir filmes, mas faltam políticas para distribuí-los, isto é, garantir que cheguem às salas para que o público possa assisti-los, além de despertar interesse pelo cinema nacional.
+                Como alerta a cineasta e gestora do Cine Glauber Rocha, Marília Hughes, o Brasil vive uma “crise de exibição”: faltam políticas para distribuí-los, isto é, garantir que cheguem às salas para que o público possa assisti-los, além de despertar interesse pelo cinema nacional.
               </p>
               <div className="max-w-3xl mx-auto mt-8 mb-16">
                 <CustomAudioPlayer
@@ -206,7 +206,7 @@ const Ato3Salvador = () => {
                 />
               </div>
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto mb-8">
-                Por essas questões, o cinema brasileiro leva desvantagem na exibição quando grandes distribuidoras internacionais oferecem pacotes de lançamentos e ocupam salas por semanas.
+                Sem subsídio, se um filme brasileiro não atrai público, a sala o tira de cartaz não por preferência ao blockbuster (sucesso de entretenimento de grande popularidade), mas para sobreviver. Por essas questões, o cinema brasileiro leva desvantagem na exibição quando grandes distribuidoras internacionais oferecem pacotes de lançamentos e ocupam salas por semanas.
               </p>
             </div>
             {/* Gráfico de Dados */}

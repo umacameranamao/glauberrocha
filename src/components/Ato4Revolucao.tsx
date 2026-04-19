@@ -5,6 +5,7 @@ import saudadeAudio from "@/assets/03-Saudade.mp3";
 import cineMadrigal from "@/assets/cine-madrigal.png";
 import cineGlauberExterior from "@/assets/cine-glauber-exterior.jpg";
 import MapaCinemas from "./MapaCinemas";
+import oFantasmaImg from "@/assets/o-fantasma-frame.jpg";
 
 const Ato4Revolucao = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -216,19 +217,41 @@ const Ato4Revolucao = () => {
             </div>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              Em Vitória da Conquista, o nome de Glauber Rocha estampa aeroportos, teatro e casa, mas o Cine Madrigal, histórico cinema de rua fundado em 1968, está fechado e sem expectativas de recuperação. Ali ocorreu a pré-estreia de Central do Brasil, com a presença de Walter Salles, como lembra o diretor Daniel Leite.
+              Em Vitória da Conquista, terra do cineasta, o aeroporto leva o nome de <span className="italic text-primary">Aeroporto Glauber Rocha</span>, o teatro da UESB é o <span className="italic text-primary">Teatro Glauber Rocha</span>. Tem a <span className="italic text-primary">Casa Glauber Rocha</span>. “É tudo Glauber Rocha nesses espaços físicos", pontua Daniel Leite. No entanto, o <span className="italic text-primary">Cine Madrigal</span>, histórico cinema de rua fundado em 1968, está fechado e sem expectativas de recuperação. Ali ocorreu a pré-estreia de <span className="italic text-primary">Central do Brasil</span>, com a presença de Walter Salles, como lembra o diretor.
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              A Prefeitura de Vitória da Conquista informou, em resposta à Lei de Acesso à Informação, que o Cine Madrigal está sob responsabilidade da Secretaria Municipal de Educação. O ofício revela que "a edificação apresenta necessidade de intervenções físicas e, por essa razão, foram iniciadas ações preliminares visando a requalificação do espaço", mas indica que "até o momento, não há edital ou contrato finalizados, razão pela qual não há empresa contratada, valores definitivos ou cronograma consolidado." O município também busca recursos federais para viabilizar futuras intervenções no imóvel.
+              Relatos recentes e reportagens locais descrevem um cenário de deterioração física: o interior acumula poeira, há infiltrações e o mobiliário original (que já foi o maior da cidade, com quase mil lugares) sofre com a falta de manutenção.
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              Hoje, Conquista apenas conta com dois cinemas, ambos em shoppings. Filmes produzidos na cidade raramente conseguem entrar em cartaz. A cidade preserva o nome de Glauber, mas abandona o que o tornaria vivo: a experiência em sala.
+              Hoje, com seus quase 400 mil habitantes e sendo a terceira maior cidade do estado, conta apenas com dois cinemas, ambos enclausurados em shoppings, onde produções locais raramente rompem a barreira do cartaz.
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              Por outro lado, o cinema que leva seu nome, o Cine Glauber Rocha em Salvador, se destaca em meio à hegemonia das salas de shoppings. Ir ao Glauber, afirma Hughes, é também “se relacionar com a cidade: ver o pôr do sol na Praça Castro Alves, tomar um café, caminhar pela Rua Chile. Shopping não tem isso, pois são todos iguais”.
+              A Prefeitura de Vitória da Conquista informou, em resposta à Lei de Acesso à Informação, que o <span className="italic text-primary">Cine Madrigal</span> está sob responsabilidade da Secretaria Municipal de Educação. O ofício revela que "a edificação apresenta necessidade de intervenções físicas e, por essa razão, foram iniciadas ações preliminares visando a requalificação do espaço", mas indica que "até o momento, não há edital ou contrato finalizados, razão pela qual não há empresa contratada, valores definitivos ou cronograma consolidado." O município também busca recursos federais para viabilizar futuras intervenções no imóvel.
+            </p>
+
+            <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
+              Para explorar ludicamente essa lacuna, o curta-metragem <span className="italic text-primary">"O Fantasma de Glauber Rocha" (2019)</span>, de L.H. Girarde, simula a fita perdida de um programa jornalístico sensacionalista que investiga boatos sobre o espírito do cineasta, que estaria perambulando sem destino pelas ruas de Vitória da Conquista. Curiosamente, a obra foi gravada dentro do próprio <span className="italic text-primary">Cine Madrigal</span> já fechado, unindo visualmente a assombração do artista às ruínas do espaço que deveria celebrar sua memória.
+            </p>
+
+            {/* Banner O Fantasma de Glauber Rocha */}
+            <div className="w-full max-w-4xl mx-auto my-12">
+              <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl border-2 border-primary/20 bg-black">
+                <img
+                  src={oFantasmaImg}
+                  alt="O Fantasma de Glauber Rocha"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="mt-4 text-sm text-center text-muted-foreground italic font-grotesque">
+                Cena do curta-metragem ‘O Fantasma de Glauber Rocha’, gravada no interior do Cine Madrigal. Reprodução: Divulgação / FECIBA.
+              </p>
+            </div>
+
+            <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
+              Por outro lado, o cinema que leva seu nome, o <span className="italic text-primary">Cine Glauber Rocha</span> em Salvador, se destaca em meio à hegemonia das salas de shoppings. Ir ao Glauber, afirma Hughes, é também “se relacionar com a cidade: ver o pôr do sol na Praça Castro Alves, tomar um café, caminhar pela Rua Chile. Shopping não tem isso, pois são todos iguais”.
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
@@ -236,7 +259,7 @@ const Ato4Revolucao = () => {
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              A permanência do cinema só foi possível por iniciativa de Cláudio Marques, sócio-fundador do espaço, que conduziu o processo de captação de recursos e reforma do antigo Cine Guarani.
+              A permanência do cinema, no entanto, não é fruto de políticas públicas. Sua reabertura só ocorreu graças à iniciativa de Cláudio Marques, que conduziu durante oito anos o processo de captação de recursos e reforma do antigo <span className="italic text-primary">Cine Guarani</span>.
             </p>
 
             <div className="bg-card/50 backdrop-blur-sm border-l-4 border-primary p-6 rounded-r-xl my-8 max-w-3xl mx-auto">
@@ -310,8 +333,11 @@ const Ato4Revolucao = () => {
               </p>
             </div>
 
+            <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto mb-8">
+              Desde sua reinauguração em 2008, quando abriu as portas com <span className="italic text-primary">O Dragão da Maldade Contra o Santo Guerreiro</span> em cópia restaurada, o cinema se tornou ponto de encontro de cinéfilos, estudantes e profissionais ligados à cultura.
+            </p>
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              Ela defende que é preciso incentivar a experiência coletiva da sala escura.
+              A discussão se intensifica diante do avanço das plataformas. Segundo ela, isso é uma “ilusão”: os filmes ficam perdidos entre milhares de títulos, não aparecem em busca, cumprem apenas cota obrigatória e o produtor não recebe dados de audiência, ao contrário do cinema, que envia diariamente à <span className="italic text-primary">Ancine</span> o número real de espectadores.
             </p>
 
             {/* Fechamento Destacado */}

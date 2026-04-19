@@ -184,11 +184,19 @@ const Ato2Ideia = () => {
           <div className="max-w-3xl mx-auto space-y-8 mb-12 text-justify">
             <div className="prose prose-lg prose-invert mx-auto">
               <p className="font-grotesque text-lg text-foreground/90 leading-relaxed text-justify mb-8 first-letter:text-5xl first-letter:font-stencil first-letter:text-primary first-letter:mr-3 first-letter:float-left">
-                “Literatura e cinema tinham a mesma vontade revolucionária explícita”, afirma Glauber Lacerda, pesquisador, professor de Cinema e Audiovisual da UESB e xará do cineasta, que dedicou anos ao estudo de Glauber Rocha e de produções latino-americanas.
+                “Tanto a literatura quanto o cinema de Glauber tinham a mesma vontade revolucionária explícita”, detalha Lacerda.
               </p>
 
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8">
-                Foi no Clube de Cinema da Bahia, que o jovem Glauber se aproximou de debates políticos. Há registros de que ele, enquanto crítico de cinema, escreveu no Jornal do Brasil críticas a filmes como <a href="https://www.youtube.com/watch?v=FbcxQRuOa4o" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Orfeu Negro (1959)</span></a>, acusando a produção de romantizar o país para o público estrangeiro e ignorar seus problemas sociais.
+                Foi no Clube de Cinema da Bahia, fundado pelo crítico Walter da Silveira, que o jovem Glauber se aproximou de debates políticos mais profundos. Nas sessões matinais de sábado, realizadas no antigo Cine Guarany em meio a estudantes universitários e secundaristas, ele absorveu a ideia definitiva de que o cinema não era apenas entretenimento.
+              </p>
+
+              <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8">
+                A partir disso, a transição de Glauber da Bahia para o cenário nacional foi marcada por sua atuação como crítico de cinema. Nessa fase, ele não poupava palavras para atacar o que considerava um desserviço à cultura brasileira. Um de seus alvos foi <a href="https://www.youtube.com/watch?v=FbcxQRuOa4o" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Orfeu Negro (1959)</span></a>, dirigido pelo francês Marcel Camus e baseado na peça de Vinicius de Moraes, longa vencedor da Palma de Ouro em Cannes e do Oscar de Melhor Filme Estrangeiro.
+              </p>
+
+              <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8">
+                Na contramão do deslumbre internacional, Glauber publicou no Suplemento Dominical do Jornal do Brasil (SDJB) uma crítica de página inteira intitulada <span className="italic text-primary">'Orfeu, metafísica da favela'</span>. No texto, o baiano acusava a produção de criar uma imagem poética das favelas cariocas, romantizando o país para o olhar estrangeiro enquanto ignorava os seus profundos abismos sociais.
               </p>
             </div>
           </div>
@@ -231,7 +239,10 @@ const Ato2Ideia = () => {
           <div className="max-w-3xl mx-auto space-y-8 mb-12 text-justify">
             <div className="prose prose-lg prose-invert mx-auto">
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8">
-                A partir desse olhar, passou a tratar a cultura não como entretenimento passivo, mas como lugar de conflito. <a href="https://www.youtube.com/watch?v=EhHThNyck1s" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Barravento (1961)</span></a>, primeiro longa de Rocha, à época com 23 anos, retrata pescadores baianos e aborda pobreza, racismo e candomblé com uma narrativa que flertava com o marxismo.
+                <a href="https://www.youtube.com/watch?v=EhHThNyck1s" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Barravento (1961)</span></a>, primeiro longa-metragem de Rocha, dirigido quando tinha apenas 23 anos, foi uma resposta direta a essa tentativa de exotizar a pobreza. Glauber mergulha na cultura negra e na religiosidade do Candomblé não como mero adereço visual, mas como elemento de emancipação.
+              </p>
+              <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8">
+                Para o professor e pesquisador Humberto Alves Silva Júnior, da Universidade Federal de Rondônia, o filme antecipa debates raciais e sociais que permanecem urgentes, focando em uma comunidade de pescadores explorados que busca, na sua própria organização social, caminhos para a libertação.
               </p>
             </div>
           </div>
@@ -256,7 +267,7 @@ const Ato2Ideia = () => {
           <div className="max-w-3xl mx-auto space-y-8 mb-20 text-justify mb-8">
             <div className="prose prose-lg prose-invert mx-auto">
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8">
-                Como resultado, o artista formula a Estética da Fome (1965). Segundo Humberto Alves Silva Júnior, professor de Ciências Sociais da Universidade Federal de Rondônia, o manifesto bebeu diretamente das ideias do psiquiatra e filósofo Frantz Fanon. Glauber apresentou o manifesto em Gênova, e depois publicou no Brasil sob o título “Eztetyka da Fome”.
+                Foi amadurecendo essas inquietações práticas que, em 1965, o artista apresentou em Gênova o manifesto <span className="italic text-primary">A Estética da Fome</span> (posteriormente publicado no Brasil como <span className="italic text-primary">“Eztetyka da Fome”</span>). Humberto Alves destaca que o documento bebeu diretamente da fonte do psiquiatra e filósofo martinicano Frantz Fanon, autor de <span className="italic text-primary">Os Condenados da Terra</span>.
               </p>
 
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8">
@@ -278,7 +289,7 @@ const Ato2Ideia = () => {
               </p>
 
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8 mt-12">
-                Ao mesmo tempo, o cineasta se frustrava com as noções que seus filmes seriam “complexos demais”. Suas obras não alcançavam o grande público, habituado a narrativas tradicionais. “Ele precisava seguir o ritual de Hollywood, buscar exibição em diferentes lugares do Brasil, sempre preocupado em alcançar o público sem abrir mão de sua linguagem. Esse era o sonho de Glauber: fazer cinema com sentido”, afirma Alves.
+                No entanto, o pesquisador ressalta que, embora Glauber quisesse ser popular, sua recusa em seguir fórmulas comerciais ("pornochanchadas" na época, blockbusters hoje) criou um paradoxo de acesso. O cineasta se frustrava com as noções que seus filmes seriam complexos demais. “Ele precisava seguir o ritual de Hollywood, buscar exibição em diferentes lugares do Brasil, sempre preocupado em alcançar o público sem abrir mão de sua linguagem. Esse era o sonho de Glauber: fazer cinema com sentido”, afirma Alves.
               </p>
             </div>
           </div>
