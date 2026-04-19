@@ -244,8 +244,7 @@ const Ato1Bahia = () => {
                         <div className="space-y-12">
                             <div ref={audioTriggerRef} className="max-w-3xl mx-auto space-y-6">
                                 <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
-                                    Além de cineasta, Glauber Rocha foi poeta. Pesquisadores mapearam a obra do artista em <span className="italic text-primary">Poemas Eskolhydos</span> e <span className="italic text-primary">Cartas ao Mundo</span>, que defendia a publicação dos textos como forma de preservar a base literária de seus filmes.
-
+                                    Por décadas, a Bahia se orgulhou de ter criado um cineasta reconhecido mundialmente. O que poucos sabem é que ele também deixou uma vasta produção literária. A coletânea <span className="italic text-primary">‘Poemas Eskolhydos de Glauber Rocha’</span>, organizada por Pedro Maciel, reúne os versos mais conhecidos do autor, enquanto <span className="italic text-primary">‘Cartas ao Mundo’</span>, organizada por Ivana Bentes, revela seu pensamento por meio de correspondências pessoais. O próprio Glauber defendia que seus textos fossem publicados como forma de “preservar a base literária de seus filmes”.
                                 </p>
                                 <div className="mb-16 text-center flex flex-col items-center">
                                     <img
@@ -258,9 +257,13 @@ const Ato1Bahia = () => {
                                     </p>
                                 </div>
                                 <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
-                                    A influência da tradição oral nordestina e do cordel se manifesta, por exemplo, nas canções de Sérgio Ricardo, autor da trilha sonora de
-                                    <a href="https://www.youtube.com/watch?v=QEsoB05RjGs" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary"> Deus e o Diabo na Terra do Sol (1964)</span></a>, compostas a partir de um poema de Glauber.
-                                    Décadas depois, o compositor Gutemberg Vieira também musicou uma série de poemas do cineasta, gravando cerca de 14 faixas em estúdio profissional.
+                                    Para o pesquisador Glauber Lacerda, professor de Cinema e Audiovisual da Universidade Estadual do Sudoeste da Bahia (UESB) e xará do artista, é impossível dissociar o cineasta do escritor e poeta. “Desde muito jovem, ele foi ligado às letras. Isso aparece nas cartas que trocava com os tios, onde já se revelava um leitor voraz de literatura e filosofia”, explica o professor, destacando o papel fundamental de Dona Lúcia Rocha, mãe do cineasta, no incentivo constante à leitura dentro de casa.
+                                </p>
+                                <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
+                                    Glauber se apropriou da tradição oral nordestina, especialmente da literatura de cordel, em <a href="https://www.youtube.com/watch?v=QEsoB05RjGs" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Deus e o Diabo na Terra do Sol (1964)</span></a> e <span className="italic text-primary">O Dragão da Maldade contra o Santo Guerreiro (1969)</span>, levando para o cinema uma cadência marcada por rimas, proclamações e discursos populares. Em Deus e o Diabo, por exemplo, a parceria com Sérgio Ricardo, compositor e figura emblemática do <span className="italic text-primary">Cinema Novo</span>, transformou os poemas originais do cineasta nas canções que conduzem a história.
+                                </p>
+                                <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
+                                    Décadas depois, os versos do diretor ganharam vida também na voz de outro conquistense, o compositor Gutemberg Vieira. Encarnando a figura de um verdadeiro ‘menestrel’ moderno, aquele que, no sertão, guarda e transmite a identidade cultural de seu povo, ele transformou os poemas do cineasta em cerca de 14 faixas gravadas em estúdio profissional. Sua qualidade técnica e poética é frequentemente comparada à de gigantes como <span className="italic text-primary">Elomar</span> e <span className="italic text-primary">Xangai</span>, ainda que Gutemberg não tenha alcançado a mesma projeção comercial.
                                 </p>
                                 <div className="bg-card/50 backdrop-blur-sm border-l-4 border-primary p-6 rounded-r-xl my-8">
                                     <p className="font-grotesque text-lg text-foreground italic mb-4">
@@ -271,13 +274,13 @@ const Ato1Bahia = () => {
                                     </p>
                                 </div>
                                 <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
-                                    O artista lembra que Dona Lúcia, mãe do cineasta, aprovou e incentivou o projeto após a apresentação realizada no fim dos anos noventa, no Cine Madrigal, tradicional cinema de rua de Vitória da Conquista. Já a filha, Paloma Rocha, questionou os palavrões, ao que ele respondeu que alterar “seria desonesto com o próprio poema”.
+                                    O artista lembra que Dona Lúcia, mãe do cineasta, aprovou e incentivou o projeto após a apresentação realizada no fim dos anos noventa, no Cine Madrigal, tradicional cinema de rua de Vitória da Conquista. Já a filha, Paloma Rocha, questionou os palavrões nas letras, ao que ele respondeu que alterar “seria desonesto com o próprio poema”.
                                 </p>
                                 <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
-                                    Após a morte de Dona Lúcia, Paloma barrou o lançamento do CD e autorizou apenas as apresentações das canções.
+                                    Após a morte da matriarca, no entanto, Paloma barrou o lançamento comercial do CD e autorizou apenas as apresentações das canções ao vivo. Procurada pela reportagem, Paloma Rocha não retornou os contatos até a publicação desta matéria.
                                 </p>
                                 <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
-                                    Mesmo restrito, as interpretações revelam a força dos versos, como em “Saudade” e “Eu meu Santo”. A poesia “Letra Fera”, descrito como um “vômito de ideias”, ganhou interpretação inédita de Tarcísio Santos e Guigga Maraká. Segundo Gutemberg, a nova leitura “deu outra roupa para o manequim”.
+                                    Mesmo restrito, as interpretações revelam a força dos versos. Por exemplo, a poesia “Letra Fera”, descrita como um “vômito de ideias”, ganhou interpretação inédita dos artistas Tarcísio Santos e Guigga Maraká e integrou o álbum <span className="italic text-primary">“Mar Sobre Pedras” (2023)</span> da dupla. Segundo Gutemberg, a leitura “deu outra roupa para o manequim”.
                                 </p>
                             </div>
                             <div className="w-full max-w-4xl mx-auto">
@@ -304,9 +307,7 @@ const Ato1Bahia = () => {
                             <div className="max-w-3xl mx-auto text-justify space-y-6">
                                 <div className="prose prose-lg prose-invert">
                                     <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
-                                        A gravação ao vivo, apenas com voz e violão, remete ao Cinema Novo: ‘Câmera na mão, ideia na cabeça… Violão na mão e voz falando’”, diz Tarcísio. A faixa é uma das onze do álbum Mar sobre Pedras, lançado em 2023, no qual o poema norteou a produção.
-
-
+                                        Em tempos de produções cheias de efeitos sonoros e retoques digitais, Guigga e Tarcísio seguiram o caminho oposto. O álbum foi gravado ao vivo, em estúdio, apenas com voz e violão. A decisão nasceu do bolso curto, é verdade, mas também de uma escolha estética: fazer arte com o que se tem, um princípio que lembra o <span className="italic text-primary">Cinema Novo</span> de Glauber. “É essa coisa da câmera na mão e uma ideia na cabeça... o violão na mão e uma voz falando”, aponta Tarcísio.
                                     </p>
 
 
@@ -315,8 +316,9 @@ const Ato1Bahia = () => {
                                         src={tarcisioAudio}
                                         caption="Tarcísio Santos comenta a produção do álbum 'Mar sobre Pedras'"
                                     />
-                                    <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mt-8">
-                                        Tarcísio acrescenta que havia a necessidade de encontrar formas de expressar a identidade baiana e interiorana, mesmo com as limitações impostas pela indústria cultural.
+
+                                    <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
+                                        Ele acrescenta que havia a necessidade de encontrar formas de expressar a identidade baiana e interiorana, mesmo com as fortes limitações impostas pela indústria cultural.
                                     </p>
                                 </div>
                             </div>
