@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import heroImage from "@/assets/glauber-hero.jpg";
+import CustomAudioPlayer from "@/components/ui/CustomAudioPlayer";
+import introAudio from "@/assets/introducao.mp3";
 
 const Hero = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -34,12 +36,19 @@ const Hero = () => {
                     </h1>
 
                     <div className="max-w-3xl mx-auto my-8">
-                        <blockquote className="font-grotesque text-xl md:text-3xl text-foreground/90 italic border-l-4 border-primary pl-6">
-                            "Uma câmera na mão e uma ideia na cabeça"
+                        <blockquote className="font-grotesque text-xl md:text-3xl text-yellow-400 italic border-l-4 border-primary pl-6">
+                            Uma câmera na mão e uma ideia na cabeça
                         </blockquote>
                         <p className="mt-6 text-sm md:text-base text-foreground/80 leading-relaxed text-justify max-w-2xl mx-auto font-grotesque">
                             Glauber Rocha ainda divide o país entre quem o celebra e quem pouco o conhece. Nascido em Vitória da Conquista, levou a desigualdade brasileira às telas e moldou o Cinema Novo. Hoje, compositores como Gutemberg Vieira, Tarcísio Santos e Guigga Maraká resgatam seu lado poeta. Ao mesmo tempo, a falta de políticas de exibição impede que o cinema crítico, político e popular que Glauber defendia chegue ao público, permanecendo restrito a palcos, prêmios e discursos sobre sua importância.
                         </p>
+
+                        <div className="mt-8 max-w-md mx-auto">
+                            <CustomAudioPlayer
+                                src={introAudio}
+                                caption="Ouça a introdução desta reportagem especial"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

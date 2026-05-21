@@ -54,7 +54,7 @@ const GraficoCinema = () => {
         lancamentos: "Porcentagem de títulos brasileiros vs. internacionais lançados.",
         sessoes: "Ocupação das salas de cinema por filmes nacionais.",
         publico: "Total de espectadores que escolheram filmes nacionais.",
-        renda: "Arrecadação de bilheteria das produções brasileiras. Fonte: Ancine."
+        renda: "Arrecadação de bilheteria das produções brasileiras."
     };
 
     const CustomTooltip = ({ active, payload, label }: any) => {
@@ -94,6 +94,9 @@ const GraficoCinema = () => {
                         </h3>
                         <p className="font-grotesque text-white/70 text-lg max-w-2xl mx-auto">
                             A luta desigual do cinema brasileiro nas salas de exibição (2018-2024)
+                        </p>
+                        <p className="font-grotesque text-white/50 text-sm mt-2">
+                            Fonte: <a href="https://www12.senado.leg.br/noticias/infomaterias/2025/02/entenda-como-o-sucesso-dos-filmes-brasileiros-beneficia-o-pais" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Ancine e Filme B</span></a>
                         </p>
                     </div>
 

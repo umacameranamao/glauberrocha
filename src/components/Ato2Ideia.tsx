@@ -21,6 +21,53 @@ const Ato2Ideia = () => {
     setIsMuted(isThemeMuted);
   }, [isThemeMuted]);
 
+  // Amplificador Web Audio API para o áudio de fundo (Gal Costa) que está muito baixo
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    let audioCtx: AudioContext | null = null;
+    let source: MediaElementAudioSourceNode | null = null;
+    let gainNode: GainNode | null = null;
+
+    const setupAudioBoost = () => {
+      if (audioCtx) return;
+      try {
+        const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+        audioCtx = new AudioContextClass();
+        source = audioCtx.createMediaElementSource(audio);
+        gainNode = audioCtx.createGain();
+        gainNode.gain.value = 4.0; // Amplifica o volume da música em 4.0x
+        source.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        console.log("[ATO2] Web Audio API configurada com ganho de 4.0x para 'ola-gal.mp3'");
+      } catch (e) {
+        console.error("[ATO2] Erro ao configurar Web Audio API para amplificar som:", e);
+      }
+    };
+
+    const handleUserInteraction = () => {
+      setupAudioBoost();
+      if (audioCtx && audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+    };
+
+    const events = ["click", "keydown", "touchstart", "scroll", "wheel"];
+    events.forEach((event) =>
+      window.addEventListener(event, handleUserInteraction, { once: true })
+    );
+
+    return () => {
+      events.forEach((event) =>
+        window.removeEventListener(event, handleUserInteraction)
+      );
+      if (audioCtx) {
+        audioCtx.close();
+      }
+    };
+  }, []);
+
   // Intersection Observer
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -196,7 +243,7 @@ const Ato2Ideia = () => {
               </p>
 
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8">
-                Na contramão do deslumbre internacional, Glauber publicou no Suplemento Dominical do Jornal do Brasil (SDJB) uma crítica de página inteira intitulada <span className="italic text-primary">'Orfeu, metafísica da favela'</span>. No texto, o baiano acusava a produção de criar uma imagem poética das favelas cariocas, romantizando o país para o olhar estrangeiro enquanto ignorava os seus profundos abismos sociais.
+                Na contramão do deslumbre internacional, Glauber publicou no Suplemento Dominical do Jornal do Brasil (SDJB) uma crítica de página inteira intitulada <a href="https://repositorio.unesp.br/server/api/core/bitstreams/efe770b9-b6c2-4fd5-a897-804768e7e347/content" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">'Orfeu, metafísica da favela'</span></a>. No texto, o baiano acusava a produção de criar uma imagem poética das favelas cariocas, romantizando o país para o olhar estrangeiro enquanto ignorava os seus profundos abismos sociais.
               </p>
             </div>
           </div>
@@ -267,7 +314,7 @@ const Ato2Ideia = () => {
           <div className="max-w-3xl mx-auto space-y-8 mb-20 text-justify mb-8">
             <div className="prose prose-lg prose-invert mx-auto">
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8">
-                Foi amadurecendo essas inquietações práticas que, em 1965, o artista apresentou em Gênova o manifesto <span className="italic text-primary">A Estética da Fome</span> (posteriormente publicado no Brasil como <span className="italic text-primary">“Eztetyka da Fome”</span>). Humberto Alves destaca que o documento bebeu diretamente da fonte do psiquiatra e filósofo martinicano Frantz Fanon, autor de <span className="italic text-primary">Os Condenados da Terra</span>.
+                Foi amadurecendo essas inquietações práticas que, em 1965, o artista apresentou em Gênova o manifesto <a href="https://vermelho.org.br/prosa-poesia-arte/leia-a-integra-do-manifesto-uma-estetica-da-fome-de-glauber-rocha/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">A Estética da Fome</span></a> (posteriormente publicado no Brasil como <span className="italic">“Eztetyka da Fome”</span>). Humberto Alves destaca que o documento bebeu diretamente da fonte do psiquiatra e filósofo martinicano Frantz Fanon, autor de <a href="https://www.amazon.com.br/Os-condenados-terra-Frantz-Fanon/dp/6559790843/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Os Condenados da Terra</span></a>.
               </p>
 
               <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify mb-8">

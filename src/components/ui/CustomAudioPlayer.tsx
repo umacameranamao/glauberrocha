@@ -133,7 +133,7 @@ const CustomAudioPlayer = ({ src, caption }: CustomAudioPlayerProps) => {
                 </div>
 
                 {caption && (
-                    <p className="text-center text-sm text-yellow-400/80 font-grotesque italic mt-2">
+                    <p className="text-center text-sm text-yellow-400/80 font-grotesque italic">
                         {caption}
                     </p>
                 )}

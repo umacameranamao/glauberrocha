@@ -205,19 +205,19 @@ const Ato4Revolucao = () => {
             {/* Mapa de Cinemas */}
             <div className="my-16 max-w-4xl mx-auto">
               <h3 className="font-stencil text-2xl text-center text-primary mb-6">
-                CIRCUITO DE CINEMAS EM SALVADOR
+                CIRCUITO DE CINEMAS DE RUA EM SALVADOR
               </h3>
               {/* Mapa Interativo */}
               <div className="w-full max-w-4xl mx-auto my-12">
                 <MapaCinemas />
                 <p className="text-center text-muted-foreground mt-4 font-grotesque text-sm">
-                  Mapa interativo das salas de cinema ativas e inativas na capital. Fonte: <a href="https://cinemafalda.blogspot.com/2010/02/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Cinema Falda</span></a>.
+                  Mapa interativo das salas de cinema de rua ativas e inativas na capital. Fonte: <a href="https://cinemafalda.blogspot.com/2010/02/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Cinema Falda</span></a>.
                 </p>
               </div>
             </div>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              Em Vitória da Conquista, terra do cineasta, o aeroporto leva o nome de <span className="italic text-primary">Aeroporto Glauber Rocha</span>, o teatro da UESB é o <span className="italic text-primary">Teatro Glauber Rocha</span>. Tem a <span className="italic text-primary">Casa Glauber Rocha</span>. “É tudo Glauber Rocha nesses espaços físicos", pontua Daniel Leite. No entanto, o <span className="italic text-primary">Cine Madrigal</span>, histórico cinema de rua fundado em 1968, está fechado e sem expectativas de recuperação. Ali ocorreu a pré-estreia de <span className="italic text-primary">Central do Brasil</span>, com a presença de Walter Salles, como lembra o diretor.
+              Em Vitória da Conquista, terra do cineasta, o aeroporto leva o nome de <span className="italic">Aeroporto Glauber Rocha</span>, o teatro da UESB é o <span className="italic">Teatro Glauber Rocha</span>. Tem a <span className="italic">Casa Glauber Rocha</span>. “É tudo Glauber Rocha nesses espaços físicos", pontua Daniel Leite. No entanto, o <span className="italic">Cine Madrigal</span>, histórico cinema de rua fundado em 1968, está fechado e sem expectativas de recuperação. Ali ocorreu a pré-estreia de <span className="italic">Central do Brasil</span>, com a presença de Walter Salles, como lembra o diretor.
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
@@ -229,11 +229,11 @@ const Ato4Revolucao = () => {
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              A Prefeitura de Vitória da Conquista informou, em resposta à Lei de Acesso à Informação, que o <span className="italic text-primary">Cine Madrigal</span> está sob responsabilidade da Secretaria Municipal de Educação. O ofício revela que "a edificação apresenta necessidade de intervenções físicas e, por essa razão, foram iniciadas ações preliminares visando a requalificação do espaço", mas indica que "até o momento, não há edital ou contrato finalizados, razão pela qual não há empresa contratada, valores definitivos ou cronograma consolidado." O município também busca recursos federais para viabilizar futuras intervenções no imóvel.
+              A Prefeitura de Vitória da Conquista informou, em resposta à Lei de Acesso à Informação, que o <span className="italic">Cine Madrigal</span> está sob responsabilidade da Secretaria Municipal de Educação. O ofício revela que "a edificação apresenta necessidade de intervenções físicas e, por essa razão, foram iniciadas ações preliminares visando a requalificação do espaço", mas indica que "até o momento, não há edital ou contrato finalizados, razão pela qual não há empresa contratada, valores definitivos ou cronograma consolidado." O município também busca recursos federais para viabilizar futuras intervenções no imóvel.
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              Para explorar ludicamente essa lacuna, o curta-metragem <span className="italic text-primary">"O Fantasma de Glauber Rocha" (2019)</span>, de L.H. Girarde, simula a fita perdida de um programa jornalístico sensacionalista que investiga boatos sobre o espírito do cineasta, que estaria perambulando sem destino pelas ruas de Vitória da Conquista. Curiosamente, a obra foi gravada dentro do próprio <span className="italic text-primary">Cine Madrigal</span> já fechado, unindo visualmente a assombração do artista às ruínas do espaço que deveria celebrar sua memória.
+              Para explorar ludicamente essa lacuna, o curta-metragem <a href="https://www.feciba.com.br/2021/filmes/curta-metragem/o-fantasma-de-glauber-rocha/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">"O Fantasma de Glauber Rocha" (2019)</span></a>, de L.H. Girarde, simula a fita perdida de um programa jornalístico sensacionalista que investiga boatos sobre o espírito do cineasta, que estaria perambulando sem destino pelas ruas de Vitória da Conquista. Curiosamente, a obra foi gravada dentro do próprio <span className="italic">Cine Madrigal</span> já fechado, unindo visualmente a assombração do artista às ruínas do espaço que deveria celebrar sua memória.
             </p>
 
             {/* Banner O Fantasma de Glauber Rocha */}
@@ -251,7 +251,7 @@ const Ato4Revolucao = () => {
             </div>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              Por outro lado, o cinema que leva seu nome, o <span className="italic text-primary">Cine Glauber Rocha</span> em Salvador, se destaca em meio à hegemonia das salas de shoppings. Ir ao Glauber, afirma Hughes, é também “se relacionar com a cidade: ver o pôr do sol na Praça Castro Alves, tomar um café, caminhar pela Rua Chile. Shopping não tem isso, pois são todos iguais”.
+              Por outro lado, o cinema que leva seu nome, o <a href="https://www.cineglauberrocha.com.br/glauber-rocha/institucional/nossa-historia" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Cine Glauber Rocha</span></a> em Salvador, se destaca em meio à hegemonia das salas de shoppings. Ir ao Glauber, afirma Hughes, é também “se relacionar com a cidade: ver o pôr do sol na Praça Castro Alves, tomar um café, caminhar pela Rua Chile. Shopping não tem isso, pois são todos iguais”.
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
@@ -259,7 +259,7 @@ const Ato4Revolucao = () => {
             </p>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              A permanência do cinema, no entanto, não é fruto de políticas públicas. Sua reabertura só ocorreu graças à iniciativa de Cláudio Marques, que conduziu durante oito anos o processo de captação de recursos e reforma do antigo <span className="italic text-primary">Cine Guarani</span>.
+              A permanência do cinema, no entanto, não é fruto de políticas públicas. Sua reabertura só ocorreu graças à iniciativa de Cláudio Marques, que conduziu durante oito anos o processo de captação de recursos e reforma do antigo <a href="https://www.cineglauberrocha.com.br/glauber-rocha/institucional/nossa-historia" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Cine Guarani</span></a>.
             </p>
 
             <div className="bg-card/50 backdrop-blur-sm border-l-4 border-primary p-6 rounded-r-xl my-8 max-w-3xl mx-auto">
@@ -334,10 +334,10 @@ const Ato4Revolucao = () => {
             </div>
 
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto mb-8">
-              Desde sua reinauguração em 2008, quando abriu as portas com <span className="italic text-primary">O Dragão da Maldade Contra o Santo Guerreiro</span> em cópia restaurada, o cinema se tornou ponto de encontro de cinéfilos, estudantes e profissionais ligados à cultura.
+              Desde sua reinauguração em 2008, quando abriu as portas com <a href="https://youtu.be/QiD4ZnyDAdo?si=fJULsMeaLAdXi-6z" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">O Dragão da Maldade Contra o Santo Guerreiro</span></a> em cópia restaurada, o cinema se tornou ponto de encontro de cinéfilos, estudantes e profissionais ligados à cultura.
             </p>
             <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify max-w-3xl mx-auto">
-              A discussão se intensifica diante do avanço das plataformas. Segundo ela, isso é uma “ilusão”: os filmes ficam perdidos entre milhares de títulos, não aparecem em busca, cumprem apenas cota obrigatória e o produtor não recebe dados de audiência, ao contrário do cinema, que envia diariamente à <span className="italic text-primary">Ancine</span> o número real de espectadores.
+              A discussão se intensifica diante do avanço das plataformas. Segundo ela, isso é uma “ilusão”: os filmes ficam perdidos entre milhares de títulos, não aparecem em busca, cumprem apenas cota obrigatória e o produtor não recebe dados de audiência, au contrário do cinema, que envia diariamente à <a href="https://www.gov.br/ancine/pt-br" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Ancine</span></a> o número real de espectadores.
             </p>
 
             {/* Fechamento Destacado */}

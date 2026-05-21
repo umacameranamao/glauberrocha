@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Ato1Bahia from "@/components/Ato1Bahia";
 import Ato2Ideia from "@/components/Ato2Ideia";
+import VideoDestaque from "@/components/VideoDestaque";
 import Ato3Salvador from "@/components/Ato3Salvador";
 import Ato4Revolucao from "@/components/Ato4Revolucao";
 import GaleriaNegativo from "@/components/GaleriaNegativo";
@@ -15,6 +16,7 @@ const Index = () => {
         <Hero />
         <Ato1Bahia />
         <Ato2Ideia />
+        <VideoDestaque />
         <Ato3Salvador />
         <Ato4Revolucao />
         <GaleriaNegativo />

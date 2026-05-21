@@ -232,6 +232,10 @@ const EpilogoManifesto = () => {
                     <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Instituição</span>
                     <p>Faculdade de Comunicação Social - Jornalismo UFRB</p>
                   </div>
+                  <div>
+                    <span className="text-primary font-semibold block uppercase tracking-wider text-xs mb-1">Orientadoras</span>
+                    <p>Larissa Caldeira e Renata Leahy</p>
+                  </div>
                 </div>
               </div>
 
@@ -295,26 +299,50 @@ const EpilogoManifesto = () => {
                 <h4 className="font-stencil text-xl text-accent mb-6 tracking-wider text-left">
                   TRILHA SONORA
                 </h4>
-                <div className="space-y-4 font-grotesque text-foreground/80 text-left">
-                  <div>
+                <div className="space-y-6 font-grotesque text-foreground/80 text-left">
+                  {/* 1. Sérgio Ricardo — Deus e o Diabo na Terra do Sol */}
+                  <div className="border-b border-primary/10 pb-4">
                     <p className="font-bold text-primary">Sérgio Ricardo — Deus e o Diabo na Terra do Sol</p>
-                    <p className="text-sm opacity-80">(canção original de Sérgio Ricardo e Glauber Rocha, presente no filme Deus e o Diabo)</p>
+                    <p className="text-xs text-accent uppercase tracking-wider mt-1">Localização: Trilha sonora do Ato 1 (A cena pop)</p>
+                    <p className="text-sm text-foreground/75 mt-2">
+                      <strong>Contexto:</strong> Escrita em 1963 a partir de poemas do próprio Glauber Rocha, a faixa materializa a tese de que é impossível separar o cineasta do escritor. A composição de Sérgio Ricardo une a poesia de Glauber à rítmica do cordel, transformando a tradição oral nordestina na trilha condutora do filme <i>Deus e o Diabo</i> (1964).
+                    </p>
                   </div>
-                  <div>
+
+                  {/* 2. Gal Costa — Olá */}
+                  <div className="border-b border-primary/10 pb-4">
                     <p className="font-bold text-primary">Gal Costa — Olá</p>
-                    <p className="text-sm opacity-80">(canção original de Sérgio Ricardo, presente no filme Terra em Transe)</p>
+                    <p className="text-xs text-accent uppercase tracking-wider mt-1">Localização: Trilha sonora do Ato 2 (Visão crítica)</p>
+                    <p className="text-sm text-foreground/75 mt-2">
+                      <strong>Contexto:</strong> O Ato 2 foca no amadurecimento da visão de mundo de Glauber, cenário perfeito para a inserção de Olá. Interpretada pela voz melancólica de Gal Costa e composta por Sérgio Ricardo, a faixa faz parte de <i>Terra em Transe</i> (1967), o filme mais abertamente político do cineasta. Inserir essa música exatamente ali cria a atmosfera de "transe" — de paralisia, angústia e questionamento — que o leitor precisa sentir ao mergulhar nesse período.
+                    </p>
                   </div>
-                  <div>
+
+                  {/* 3. Gutemberg Vieira — Tristeza */}
+                  <div className="border-b border-primary/10 pb-4">
                     <p className="font-bold text-primary">Gutemberg Vieira — Tristeza</p>
-                    <p className="text-sm opacity-80">(canção composta a partir de um poema de Glauber Rocha)</p>
+                    <p className="text-xs text-accent uppercase tracking-wider mt-1">Localização: Trilha sonora do Ato 3 (Luta pela distribuição)</p>
+                    <p className="text-sm text-foreground/75 mt-2">
+                      <strong>Contexto:</strong> Adaptada por Gutemberg Vieira a partir de manuscritos de Glauber Rocha, a faixa expõe versos dolorosos como "sofro e escrevo" e "eu morro de solidão". A equipe escolheu esta obra para o Ato 3 porque sua gravação minimalista, despida de adornos, traduz sensorialmente o isolamento material que cerca a distribuição independente. A faixa foi enviada à reportagem pelo próprio compositor.
+                    </p>
                   </div>
-                  <div>
+
+                  {/* 4. Gutemberg Vieira — Saudade */}
+                  <div className="border-b border-primary/10 pb-4">
                     <p className="font-bold text-primary">Gutemberg Vieira — Saudade</p>
-                    <p className="text-sm opacity-80">(canção composta a partir de um poema de Glauber Rocha)</p>
+                    <p className="text-xs text-accent uppercase tracking-wider mt-1">Localização: Trilha sonora do Ato 4 (O contraste de cinemas)</p>
+                    <p className="text-sm text-foreground/75 mt-2">
+                      <strong>Contexto:</strong> Outra peça do acervo poético de Glauber musicada por Gutemberg Vieira, a canção é construída sobre acordes lentos e um piano que evocam o tempo de exílio do cineasta. A equipe escolheu esta faixa para o Ato 4 porque sua atmosfera melancólica materializa o sentimento de perda diante do patrimônio histórico. A faixa também foi enviada à reportagem pelo próprio compositor.
+                    </p>
                   </div>
+
+                  {/* 5. Sérgio Ricardo — Sertão vai virar mar */}
                   <div>
-                    <p className="font-bold text-primary">Sérgio Ricardo — Sertão vai virar mar</p>
-                    <p className="text-sm opacity-80">(canção original de Sérgio Ricardo e Glauber Rocha, presente no filme Deus e o Diabo)</p>
+                    <p className="font-bold text-primary">Sérgio Ricardo — Sertão vai virar mar</p>
+                    <p className="text-xs text-accent uppercase tracking-wider mt-1">Localização: Acervo Glauber & Convidados e Manifesto Interativo</p>
+                    <p className="text-sm text-foreground/75 mt-2">
+                      <strong>Contexto:</strong> A composição de Sérgio Ricardo embala a icônica cena final do filme <i>Deus e o Diabo na Terra do Sol</i> (1964): a corrida desesperada de Manuel e Rosa pelo sertão, intercalada com imagens das ondas do mar. Na narrativa, o sertanejo deixa de ser espectador da própria miséria para virar o dono do seu destino. É o gancho perfeito para provocar o leitor, por meio do Manifesto Interativo, a assumir sua responsabilidade social e sua capacidade de transformar a própria história do cinema nacional.
+                    </p>
                   </div>
                 </div>
               </div>
