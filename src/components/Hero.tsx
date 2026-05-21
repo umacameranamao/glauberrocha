@@ -27,9 +27,8 @@ const Hero = () => {
             {/* Conteúdo */}
             <div className={`relative z-10 text-center px-4 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}>
-                <div className="pt-24 md:pt-16"> {/* Adjusted padding to balance header clearance and bottom overlap */}
+                <div className="pt-24 md:pt-16 pb-24 md:pb-16"> {/* Adjusted padding to balance header clearance and bottom overlap */}
                     <h1 className="font-stencil text-3xl md:text-5xl lg:text-7xl text-foreground mb-8 tracking-wider leading-tight">
-
                         <span className="block text-yellow-400 mt-4">
                             GLAUBER ROCHA
                         </span>
@@ -39,6 +38,7 @@ const Hero = () => {
                         <blockquote className="font-grotesque text-xl md:text-3xl text-yellow-400 italic border-l-4 border-primary pl-6">
                             Uma câmera na mão e uma ideia na cabeça
                         </blockquote>
+
                         <p className="mt-6 text-sm md:text-base text-foreground/80 leading-relaxed text-justify max-w-2xl mx-auto font-grotesque">
                             Glauber Rocha ainda divide o país entre quem o celebra e quem pouco o conhece. Nascido em Vitória da Conquista, levou a desigualdade brasileira às telas e moldou o Cinema Novo. Hoje, compositores como Gutemberg Vieira, Tarcísio Santos e Guigga Maraká resgatam seu lado poeta. Ao mesmo tempo, a falta de políticas de exibição impede que o cinema crítico, político e popular que Glauber defendia chegue ao público, permanecendo restrito a palcos, prêmios e discursos sobre sua importância.
                         </p>

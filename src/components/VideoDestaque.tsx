@@ -113,7 +113,7 @@ const VideoDestaque = () => {
       <div className="relative w-full max-w-[1920px] mx-auto">
         
         {/* The Film Strip wrapper with matching padding and styling */}
-        <div className="relative pb-8 pt-8 px-4 md:px-20 bg-black">
+        <div className="relative pb-8 pt-8 px-4 md:px-20">
           
           {/* Perforations Top */}
           <div 
@@ -153,14 +153,14 @@ const VideoDestaque = () => {
               
               {/* Perforation Holes Visuals */}
               <div className="absolute top-[-16px] left-0 right-0 h-[16px] flex justify-between px-2 overflow-hidden">
-                {Array.from({ length: 28 }).map((_, i) => (
-                  <div key={i} className="w-3 h-4 bg-white/10 rounded-sm" />
+                {Array.from({ length: 20 }).map((_, i) => (
+                  <div key={i} className="w-3 h-4 bg-white/10 rounded-sm flex-shrink-0" />
                 ))}
               </div>
               
               <div className="absolute bottom-[-16px] left-0 right-0 h-[16px] flex justify-between px-2 overflow-hidden">
-                {Array.from({ length: 28 }).map((_, i) => (
-                  <div key={i} className="w-3 h-4 bg-white/10 rounded-sm" />
+                {Array.from({ length: 20 }).map((_, i) => (
+                  <div key={i} className="w-3 h-4 bg-white/10 rounded-sm flex-shrink-0" />
                 ))}
               </div>
 

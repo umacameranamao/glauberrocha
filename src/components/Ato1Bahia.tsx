@@ -274,7 +274,7 @@ const Ato1Bahia = () => {
                                     </p>
                                 </div>
                                 <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
-                                    O artista lembra que Dona Lúcia, mãe do cineasta, aprovou e incentivou o projeto após a apresentação realizada no fim dos anos noventa, no Cine Madrigal, tradicional cinema de rua de Vitória da Conquista. Já a filha, Paloma Rocha, questionou os palavrões nas letras, ao que ele respondeu que alterar “seria desonesto com o próprio poema”.
+                                    O artista lembra que Dona Lúcia, mãe do cineasta, aprovou e incentivou o projeto após a apresentação realizada no fim dos anos noventa, no <a href="https://www.youtube.com/watch?v=bKRvfyjPofQ" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><span className="italic text-primary">Cine Madrigal</span></a>, tradicional cinema de rua de Vitória da Conquista. Já a filha, Paloma Rocha, questionou os palavrões nas letras, ao que ele respondeu que alterar “seria desonesto com o próprio poema”.
                                 </p>
                                 <p className="font-grotesque text-lg text-foreground/80 leading-relaxed text-justify">
                                     Após a morte da matriarca, no entanto, Paloma barrou o lançamento comercial do CD e autorizou apenas as apresentações das canções ao vivo. Procurada pela reportagem, Paloma Rocha não retornou os contatos até a publicação desta matéria.
