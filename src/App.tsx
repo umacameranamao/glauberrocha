@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { AudioProvider } from "./contexts/AudioContext";
 
+
 import AudioModal from "@/components/ui/AudioModal";
 import FloatingMuteButton from "@/components/ui/FloatingMuteButton";
 
